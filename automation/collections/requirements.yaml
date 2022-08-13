@@ -1,5 +1,6 @@
 ---
-
-collections:
+ollections:
   - name: kubernetes.core
     version: 2.3.2
+  - name: awx.awx
+  - name: community.general
