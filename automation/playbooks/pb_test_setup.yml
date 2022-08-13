@@ -1,5 +1,13 @@
 ---
-- name: Get a list of all pods from any namespace
-  kubernetes.core.k8s_info:
-    kind: Pod
-  register: pod_list
+- name: Playbook for Using a Variety of Tower Modules
+  hosts: nodes
+  gather_facts: false
+  collections:
+    - kubernetes.core
+
+  tasks:
+
+  - name: Get a list of all pods from any namespace
+    kubernetes.core.k8s_info:
+      kind: pods
+    register: pods_list
