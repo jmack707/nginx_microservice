@@ -7,6 +7,11 @@
 
   tasks:
 
+  - name: Ensure Pip is installed
+    packages:
+      name: python-pip
+      state: present
+
   - name: Get a list of all pods from any namespace
     community.kubernetes.k8s_info:
       kind: pods
