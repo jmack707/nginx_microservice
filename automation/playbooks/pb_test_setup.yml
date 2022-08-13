@@ -3,11 +3,11 @@
   hosts: nodes
   gather_facts: false
   collections: 
-    - kubernetes.core
+    - community.kubernetes
 
   tasks:
 
   - name: Get a list of all pods from any namespace
-    kubernetes.core.k8s_info:
+    community.kubernetes.core.k8s_info:
       kind: pods
     register: pods_list
