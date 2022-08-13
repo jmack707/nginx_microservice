@@ -8,6 +8,6 @@
   tasks:
 
   - name: Get a list of all pods from any namespace
-    community.kubernetes.core.k8s_info:
+    community.kubernetes.k8s_info:
       kind: pods
     register: pods_list
