@@ -2,8 +2,6 @@
 - name: Playbook for Using a Variety of Tower Modules
   hosts: nodes
   gather_facts: false
-  collections:
-    - kubernetes.core
 
   tasks:
 
