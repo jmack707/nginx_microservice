@@ -3,5 +3,3 @@ ollections:
   - name: kubernetes.core
     version: 2.3.2
   - name: community.kubernetes
-    version: 0.9.0
-  - name: awx.awx
