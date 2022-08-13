@@ -1,0 +1,13 @@
+---
+- name: RETRIEVE WORKER NODE DETAILS FROM KUBERNETES NODE
+  hosts: localhost
+  gather_facts: no
+
+  collections: 
+    - community.kubernetes
+  
+  tasks:
+  - name: GET WORKER NODE DETAILS
+    community.kubernetes.k8s_info:
+      kind: Node
+      namespace: default 
