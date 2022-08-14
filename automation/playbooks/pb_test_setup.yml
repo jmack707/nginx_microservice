@@ -31,4 +31,4 @@
     
   - name: View Results
     debug:
-      var: "{{ pods_lists.tdout }}"
+      var: "{{ pods_lists.stdout }}"
