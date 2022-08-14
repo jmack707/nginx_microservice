@@ -26,5 +26,6 @@
   - name: Get a list of all pods from any namespace
     kubernetes.core.k8s_info:
       kind: pods
+      impersonate_user: vagrant
     register: pods_list
-    impersonate_user: vagrant
+    
