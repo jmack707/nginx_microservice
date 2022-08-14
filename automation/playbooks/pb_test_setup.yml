@@ -20,6 +20,7 @@
     pip:
       name: Kubernetes
       state: present
+    become: true
 
   - name: Get a list of all pods from any namespace
     kubernetes.core.k8s_info:
