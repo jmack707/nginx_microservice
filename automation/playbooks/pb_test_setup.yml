@@ -31,4 +31,3 @@
   - name: View Results
     debug:
       var: pods_list
-      verbosity: 4
