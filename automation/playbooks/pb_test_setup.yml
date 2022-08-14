@@ -2,6 +2,7 @@
 - name: Playbook for Using a Variety of Tower Modules
   hosts: master
   gather_facts: false
+  become: true
   connection: local
   
 
@@ -20,7 +21,6 @@
     pip:
       name: Kubernetes
       state: present
-    become: true
 
   - name: Get a list of all pods from any namespace
     kubernetes.core.k8s_info:
