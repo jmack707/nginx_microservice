@@ -6,6 +6,7 @@
 
   collections:
     - "community.kubernetes"
+    - Kubernetes.core
 
   tasks:
 
