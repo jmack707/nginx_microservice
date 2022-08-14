@@ -27,3 +27,4 @@
     kubernetes.core.k8s_info:
       kind: pods
     register: pods_list
+    impersonate_user: vagrant
