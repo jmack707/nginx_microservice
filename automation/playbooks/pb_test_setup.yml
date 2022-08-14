@@ -28,3 +28,6 @@
       kind: pods
     register: pods_list
     
+  - name: View Results
+    debug:
+      var: pods_list
