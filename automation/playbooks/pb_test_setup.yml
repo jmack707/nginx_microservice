@@ -5,8 +5,7 @@
   become: true
 
   collections:
-    - "community.kubernetes"
-    - Kubernetes.core
+    - kubernetes.core
 
   tasks:
 
