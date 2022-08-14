@@ -17,8 +17,10 @@
 
   - name: Ensure Kubernetes is installed
     pip:
-      name: Kubernetes
-      state: absent
+      name: 
+        - Kubernetes
+        - PyYAML
+      state: present
     become: true
 
   - name: Get a list of all pods from any namespace
