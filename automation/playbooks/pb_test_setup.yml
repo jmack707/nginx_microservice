@@ -2,8 +2,7 @@
 - name: Playbook for Using a Variety of Tower Modules
   hosts: nodes
   gather_facts: false
-  collections: 
-    - community.kubernetes
+  becomes: true
 
   tasks:
 
@@ -11,9 +10,3 @@
     packages:
       name: python-pip
       state: present
-    becomes: yes
-
-  - name: Get a list of all pods from any namespace
-    community.kubernetes.k8s_info:
-      kind: pods
-    register: pods_list
