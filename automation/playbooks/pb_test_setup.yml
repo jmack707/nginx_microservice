@@ -30,4 +30,4 @@
     
   - name: View Results
     debug:
-      var: {{ pods_list }}
+      msg: "{{ pods_list }}"
