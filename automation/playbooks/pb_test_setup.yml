@@ -3,9 +3,7 @@
   hosts: nodes
   gather_facts: false
   become: true
-	collections: 
-	  - community.kubernetes
-    
+
   tasks:
 
   - name: Ensure Pip is installed
@@ -19,6 +17,6 @@
       state: present
 
 	- name: Get a list of all pods from any namespace
-	  community.kubernetes.k8s_info:
+	 community.kubernetes.k8s_info:
 	    kind: pods
 	  register: pods_list
