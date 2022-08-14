@@ -25,7 +25,7 @@
 
   - name: Get a list of all pods from any namespace
     kubernetes.core.k8s_info:
-      kind: Node
+      kind: Pod
       namespace: default
     register: pods_list
     
