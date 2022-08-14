@@ -4,6 +4,9 @@
   gather_facts: false
   become: true
 
+  collections:
+    - "community.kubernetes"
+
   tasks:
 
   - name: Ensure Pip is installed
