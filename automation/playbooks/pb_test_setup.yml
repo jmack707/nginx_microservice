@@ -7,6 +7,6 @@
   tasks:
 
   - name: Ensure Pip is installed
-    ansible.builtin.packages:
+    ansible.builtin.package:
       name: python-pip
       state: present
