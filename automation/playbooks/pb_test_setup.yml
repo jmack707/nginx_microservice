@@ -2,7 +2,7 @@
 - name: Playbook for Using a Variety of Tower Modules
   hosts: master
   gather_facts: false
-  become: true
+  
 
   collections:
     - kubernetes.core
@@ -13,6 +13,7 @@
     ansible.builtin.package:
       name: python3-pip
       state: present
+    become: true
 
   - name: Ensure Kubernetes is installed
     pip:
