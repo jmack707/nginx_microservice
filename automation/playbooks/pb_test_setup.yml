@@ -16,7 +16,7 @@
       name: Kubernetes
       state: present
 
-	- name: Get a list of all pods from any namespace
-	 community.kubernetes.k8s_info:
-	    kind: pods
-	  register: pods_list
+  - name: Get a list of all pods from any namespace
+    community.kubernetes.k8s_info:
+      kind: pods
+    register: pods_list
