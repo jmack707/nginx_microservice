@@ -5,7 +5,7 @@
     cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
   ignore_errors: true
 
-- name: Create CRD Schema
+- name: "{{k8s_action}}" Service Account, Cluster Role and Cluster Role Binding
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/bigip-ctlr-clusterrole.yaml') | from_yaml_all }}"
