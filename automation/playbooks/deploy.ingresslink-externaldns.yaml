@@ -1,0 +1,11 @@
+---
+# Deploy Ingresslink with ExternalDNS
+- name: Deploy Ingresslink with ExternalDNS
+  hosts: Local
+  gather_facts: false
+
+  vars:
+    vs_name: cafe.laptop.local
+
+  tasks:
+    - name: Install CIS
