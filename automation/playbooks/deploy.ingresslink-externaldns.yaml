@@ -12,5 +12,5 @@
 
   tasks:
     - name: CIS Install 
-      role:
+      include_roles:
         name: install_cis
