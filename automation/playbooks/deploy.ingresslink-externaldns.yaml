@@ -11,7 +11,6 @@
     vs_name: cafe.laptop.local
 
   tasks:
-    - name: BIG-IP credentials as Kubernetes Secrets
-      ansible.builtin.command: 
-        cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
-
+    - name: CIS Install 
+      include_role:
+        name: install_cis

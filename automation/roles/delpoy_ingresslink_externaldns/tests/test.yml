@@ -1,5 +1,0 @@
----
-- hosts: localhost
-  remote_user: root
-  roles:
-    - roles/delpoy_ingresslink_externaldns
