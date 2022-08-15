@@ -1,11 +1,11 @@
 ---
 # tasks file for roles/install_cis
-- name: BIG-IP credentials as Kubernetes Secrets
-  ansible.builtin.command: 
-    cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
-  ignore_errors: true
+#- name: BIG-IP credentials as Kubernetes Secrets
+#  ansible.builtin.command: 
+#    cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
+#  ignore_errors: true
 
 - name: Create CRD Schema
   kubernetes.core.k8s:
     state: absent 
-    definition: "{{ lookup('file', 'files/bigip-ctlr-clusterrole.yaml') | from_yaml }}"
+    definition: "{{ lookup('file', '/files/bigip-ctlr-clusterrole.yaml') | from_yaml }}"
