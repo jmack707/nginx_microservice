@@ -8,5 +8,5 @@
 
   tasks:
     - name: Secrets Test
-      role:
+      import_role:
         name: secrets_test
