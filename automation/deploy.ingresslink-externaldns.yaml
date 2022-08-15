@@ -22,6 +22,7 @@
         name: 
           - Kubernetes>=12.0.0
           - PyYAML
+          - kubernetes-validate
         state: present
       become: true 
 
