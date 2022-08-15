@@ -20,7 +20,7 @@
     - name: Ensure Kubernetes is installed
       pip:
         name: 
-          - Kubernetes==11
+          - Kubernetes>=12.0.0
           - PyYAML
         state: present
       become: true 
