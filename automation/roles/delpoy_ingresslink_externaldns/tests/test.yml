@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - roles/install.ingress
+    - roles/delpoy_ingresslink_externaldns
