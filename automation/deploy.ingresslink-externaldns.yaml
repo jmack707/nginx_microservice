@@ -10,6 +10,7 @@
   vars:
     vs_name: cafe.laptop.local
     package_state: present
+    k8s_action: Create
 
   tasks:
     - name: Ensure Pip is installed
