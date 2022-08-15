@@ -7,4 +7,4 @@
 - name: Create CRD Schema
   kubernetes.core.k8s:
     state: present 
-    definition: "{{ lookup('file', './file/bigip-ctlr-clusterrole.yaml') | from_yaml }}"
+    definition: "{{ lookup('file', 'roles/file/bigip-ctlr-clusterrole.yaml') | from_yaml }}"
