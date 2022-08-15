@@ -1,0 +1,10 @@
+---
+# tasks file for roles/secrets_test
+- name: Echo the BIGIP password
+  shell: echo $BIGIP_PASSWD
+  environment: 
+    BIGIP_PASSWD: "{{ bigip_passwd }}"
+  register: echo_result
+
+- name: Show the echo result
+  debug: var=echo_result.stdout
