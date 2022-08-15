@@ -11,6 +11,20 @@
     vs_name: cafe.laptop.local
 
   tasks:
+    - name: Ensure Pip is installed
+      ansible.builtin.package:
+        name: python3-pip
+        state: present
+      become: true
+
+    - name: Ensure Kubernetes is installed
+      pip:
+        name: 
+          - Kubernetes==11
+          - PyYAML
+        state: present
+      become: true 
+
     - name: CIS Install 
       import_role:
         name: install_cis
