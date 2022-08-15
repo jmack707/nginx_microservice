@@ -4,3 +4,7 @@
   ansible.builtin.command: 
     cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
 
+- name: Create CRD Schema
+  kubernetes.core.k8s:
+    state: present 
+    definition: "{{ lookup('file', 'file/bigip-ctlr-clusterrole.yaml') | from_yaml }}"
