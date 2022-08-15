@@ -1,7 +1,7 @@
 ---
 # Deploy Ingresslink with ExternalDNS
 - name: Deploy Ingresslink with ExternalDNS
-  hosts: Local
+  hosts: master
   gather_facts: false
 
   vars_files:
