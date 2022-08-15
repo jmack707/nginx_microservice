@@ -10,7 +10,7 @@
   vars:
     vs_name: cafe.laptop.local
     package_state: absent
-    k8s_action: Delete
+    secret_state: delete
 
   tasks:
     - name: Ensure Pip is installed
