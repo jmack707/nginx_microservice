@@ -13,4 +13,4 @@
   tasks:
     - name: CIS Install 
       include_role:
-        name: bigipauth
+        name: nginx_microservice.automation.install_cis
