@@ -9,6 +9,7 @@
 
   vars:
     vs_name: cafe.laptop.local
+    package_state: present
 
   tasks:
     - name: Ensure Pip is installed

@@ -7,7 +7,7 @@
 
 - name: Create CRD Schema
   kubernetes.core.k8s:
-    state: present 
+    state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/bigip-ctlr-clusterrole.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes
