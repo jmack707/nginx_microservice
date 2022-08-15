@@ -1,0 +1,32 @@
+---
+# Deploy Ingresslink with ExternalDNS
+- name: Deploy Ingresslink with ExternalDNS
+  hosts: master
+  gather_facts: false
+
+  vars_files:
+    - ../vars/k8s_secret.yaml
+
+  vars:
+    vs_name: cafe.laptop.local
+    package_state: absent
+
+  tasks:
+    - name: Ensure Pip is installed
+      ansible.builtin.package:
+        name: python3-pip
+        state: present
+      become: true
+
+    - name: Ensure Kubernetes is installed
+      pip:
+        name: 
+          - Kubernetes>=12.0.0
+          - PyYAML
+          - kubernetes-validate
+        state: present
+      become: true 
+
+    - name: CIS Install 
+      import_role:
+        name: install_cis
