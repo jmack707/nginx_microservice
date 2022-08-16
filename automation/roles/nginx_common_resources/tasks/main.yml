@@ -4,5 +4,11 @@
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/k8s.nginx.org_virtualservers.yaml') | from_yaml_all }}"  
+
+
+- name: Modify NINGX Virtual Server Route
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/k8s.nginx.org_virtualserverroutes.yaml') | from_yaml_all }}"  
     validate:
       fail_on_error: yes 
