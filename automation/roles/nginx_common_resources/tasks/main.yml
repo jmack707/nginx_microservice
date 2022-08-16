@@ -6,4 +6,5 @@
     definition: "{{ lookup('file', 'files/{{item}}') | from_yaml_all }}"  
     validate:
       fail_on_error: yes 
-  with_items: "{{ virtualservers.yaml }}"
+  with_items:
+    - virtualserver.yaml
