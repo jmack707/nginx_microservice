@@ -1,2 +1,2 @@
 .vault-password
-/vars/k8s_secrets.yaml
+vars/k8s_secret.yaml
