@@ -10,7 +10,7 @@
   vars:
     vs_name: cafe.laptop.local
     package_state: present
-    secret_state: delete
+    secret_state: create
 
   tasks:
     - name: Ensure Pip is installed
@@ -28,10 +28,17 @@
         state: present
       become: true 
 
-#    - name: CIS  
-#      import_role:
-#        name: install_cis
+    - name: CIS  
+      import_role:
+        name: install_cis
     - name: NGINX IC
       import_role:
-        name: roles/install_nic
+        name: install_nic
 
+    - name: Cafe APP
+      import_role:
+        name: deploy_cafe
+
+    - name: Ingresslink and ExternalDNS
+      import_role:
+        name: manage-ingresslink-dns

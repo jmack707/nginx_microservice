@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - roles/nginx_ingress_deploy
+    - manage-ingresslink-dns

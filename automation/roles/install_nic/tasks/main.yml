@@ -1,6 +1,6 @@
 ---
 # tasks file for roles/install_nic
-- name: Modify Common Resources
+- name: Manage NGINX NIC Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  

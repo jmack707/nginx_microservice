@@ -13,12 +13,6 @@
     secret_state: delete
 
   tasks:
-    - name: Ensure Pip is installed
-      ansible.builtin.package:
-        name: python3-pip
-        state: present
-      become: true
-
     - name: Ensure Kubernetes is installed
       pip:
         name: 
@@ -31,6 +25,14 @@
     - name: CIS  
       import_role:
         name: install_cis
-    - name: NGINX CRDs
+    - name: NGINX IC
       import_role:
-        name: roles/install_nic
+        name: install_nic
+
+    - name: Cafe APP
+      import_role:
+        name: deploy_cafe
+
+    - name: Ingresslink and ExternalDNS
+      import_role:
+        name: manage-ingresslink-dns

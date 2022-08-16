@@ -1,10 +1,9 @@
 ---
-# tasks file for roles/delpoy_cafe
-- name: Manage Cafe APP Deployment
+# tasks file for manage-ingresslink-dns
+- name: Manage Ingresslink and ExternalDNS CRD
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
-    - cafe
-    - cafe-secret
-    - cafe-ingress
+    - vs-ingresslink
+    - edns-cafe
