@@ -19,10 +19,10 @@
         kind: Namespace
         state: "{{package_state}}"
 
-    - name: BIG-IP credentials as Kubernetes Secrets
-      ansible.builtin.command: 
-        cmd: kubectl delete secret generic bigip-login -n kube-system 
-      ignore_errors: true
+    #- name: BIG-IP credentials as Kubernetes Secrets
+    #  ansible.builtin.command: 
+    #    cmd: kubectl delete secret generic bigip-login -n kube-system 
+    #  ignore_errors: true
 
     - name: CIS  
       import_role:
