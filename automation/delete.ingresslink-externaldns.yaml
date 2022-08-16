@@ -33,4 +33,4 @@
         name: install_cis
     - name: NGINX CRDs
       import_role:
-        name: roles/nginx_common_resources
+        name: roles/install_nic
