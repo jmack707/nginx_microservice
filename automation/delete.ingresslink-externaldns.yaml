@@ -13,7 +13,7 @@
     secret_state: delete
 
   tasks:
-    - name: Create a nginx-ingress namespace
+    - name: Delete a nginx-ingress namespace
       kubernetes.core.k8s:
         name: nginx-ingress
         kind: Namespace
