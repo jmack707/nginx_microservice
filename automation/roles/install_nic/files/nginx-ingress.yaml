@@ -16,9 +16,11 @@ spec:
        #prometheus.io/scrape: "true"
        #prometheus.io/port: "9113"
     spec:
-      serviceAccountName: nginx-ingress
-      containers:
-      - image: nginx/nginx-ingress:1.10.0
+      serviceAccountName: nginx-ingress 
+      imagePullSecrets: 
+      - name: regcred 
+      containers: 
+      - image: private-registry.nginx.com/nginx-ic/nginx-plus-ingress:2.2.0 
         imagePullPolicy: Always
         name: nginx-ingress
         ports:
