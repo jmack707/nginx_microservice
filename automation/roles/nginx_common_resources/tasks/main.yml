@@ -7,4 +7,4 @@
     validate:
       fail_on_error: yes 
   with_items:
-    - virtualserver.yaml
+    - k8s.nginx.org_virtualservers.yaml
