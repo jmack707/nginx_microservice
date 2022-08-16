@@ -3,8 +3,6 @@
 - name: Modify NINGX Virtual Server
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
+    definition: "{{ lookup('file', 'files/k8s.nginx.org_virtualservers.yaml') | from_yaml_all }}"  
     validate:
       fail_on_error: yes 
-  with_items:
-    - k8s.nginx.org_virtualservers
