@@ -6,4 +6,4 @@
     definition: "{{ lookup('file', 'files/{{item}}') | from_yaml_all }}"  
     validate:
       fail_on_error: yes 
-  with_items: "{{k8s.nginx.org_virtualservers.yaml}}"
+  with_items: "{{k8s.nginx.org_virtualservers.yaml customresourcedefinitions.yaml}}"
