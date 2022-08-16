@@ -28,7 +28,7 @@
         state: present
       become: true 
 
-    - name: CIS Install 
+    - name: CIS  
       import_role:
         name: install_cis
     - name: NGINX CRDs

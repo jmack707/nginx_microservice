@@ -28,9 +28,10 @@
         state: present
       become: true 
 
-#    - name: CIS Install 
+#    - name: CIS  
 #      import_role:
 #        name: install_cis
-    - name: NGINX CRDs
+    - name: NGINX IC
       import_role:
-        name: roles/nginx_common_resources
+        name: roles/install_nic
+
