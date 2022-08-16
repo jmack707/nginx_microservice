@@ -1,5 +1,5 @@
 ---
-# tasks file for roles/delpoy_cafe
+# tasks file for roles/deploy_cafe
 - name: Manage Cafe APP Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"

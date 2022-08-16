@@ -13,15 +13,6 @@
     secret_state: delete
 
   tasks:
-    - name: Ensure Kubernetes is installed
-      pip:
-        name: 
-          - Kubernetes>=12.0.0
-          - PyYAML
-          - kubernetes-validate
-        state: present
-      become: true 
-
     - name: CIS  
       import_role:
         name: install_cis
