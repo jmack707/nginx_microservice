@@ -1,2 +1,3 @@
 automation/.vault-password
 automation/vars/k8s_secret.yaml
+automation/test/k8s_secret.yaml
