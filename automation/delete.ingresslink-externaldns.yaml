@@ -26,16 +26,15 @@
 
     - name: CIS  
       import_role:
-        name: install_cis
+        name: manage_cis_deployment
 
     - name: NGINX IC
       import_role:
-        name: install_nic
+        name: manage_nic_deployment
+
+    - name: Syslog
+      import_role: manage_syslog_deployment
 
     - name: Cafe APP
       import_role:
-        name: deploy_cafe
-
-    - name: Ingresslink and ExternalDNS
-      import_role:
-        name: manage-ingresslink-dns
+        name: manage_app_deployment
