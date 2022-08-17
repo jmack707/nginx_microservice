@@ -20,8 +20,8 @@
     - appprotectdos.f5.com_apdoslogconfs
     - appprotectdos.f5.com_apdospolicy
     - appprotectdos.f5.com_dosprotectedresources
-    - appprotect-dos-arb.yaml
-    - appprotect-dos-arb-svc.yaml
+    - appprotect-dos-arb
+    - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
     - nginx-ingress
