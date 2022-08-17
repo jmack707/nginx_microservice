@@ -11,8 +11,8 @@
     - k8s.nginx.org_policies
     - ns-and-sa
     - rbac
-    - ap-rbac.yaml
-    - apdos-rbac.yaml
+    - ap-rbac
+    - apdos-rbac
     - default-server-secret
     - appprotect.f5.com_aplogconfs
     - appprotect.f5.com_appolicies
