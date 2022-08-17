@@ -55,7 +55,8 @@
         name: manage_nic_deployment
 
     - name: Syslog
-      import_role: manage_syslog_deployment
+      import_role: 
+        name: manage_syslog_deployment
 
     - name: Cafe APP
       import_role:
