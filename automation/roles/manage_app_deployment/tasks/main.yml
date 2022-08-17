@@ -8,6 +8,9 @@
   with_items: 
     - cafe
     - cafe-secret
+    - ap-dataguard-alarm-policy
+    - ap-logconf
+    - ap-apple-uds
     - cafe-ingress
 
 - name: Manage Ingresslink and ExternalDNS CRD
