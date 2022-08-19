@@ -6,6 +6,8 @@
 
   vars_files:
     - ../vars/k8s_secret.yaml
+    - ../vars/cafe-app.crt
+    - ../vars/cafe-app.ket
 
   vars:
     vs_name: cafe.laptop.local
@@ -15,7 +17,7 @@
   tasks:
     - name: Cafe Secret
       ansible.builtin.command: 
-        cmd: kubectl create secret tls cafe-secret --cert="{{app-cert}}" --key="{{app-key}}"
+        cmd: kubectl create secret tls cafe-secret --cert="{{cafe-app.crt}}" --key="{{cafe-app.key}}"
       ignore_errors: true
       no_log: true 
               
