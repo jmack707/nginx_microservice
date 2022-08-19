@@ -15,10 +15,6 @@ spec:
       targetPort: 443
       protocol: TCP
       name: https
-    - port: 9000
-      targetPort: 9000
-      protocol: TCP
-      name: dashboard      
   selector:
     app: nginx-ingress
   type: ClusterIP
