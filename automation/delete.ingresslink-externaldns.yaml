@@ -34,8 +34,4 @@
 
     - name: Syslog
       import_role: 
-        name: manage_syslog_deployment
-
-    - name: Cafe APP
-      import_role:
-        name: manage_app_deployment
+        name: manage_syslog_deploymen

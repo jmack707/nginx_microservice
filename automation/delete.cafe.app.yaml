@@ -1,0 +1,18 @@
+---
+# Cafe App
+- name: Remoe Cafe App
+  hosts: master
+  gather_facts: false
+
+  vars_files:
+    - ../vars/k8s_secret.yaml
+
+  vars:
+    vs_name: cafe.laptop.local
+    package_state: absent
+    secret_state: delete
+
+  tasks:
+    - name: Cafe APP
+      import_role:
+        name: manage_app_deployment
