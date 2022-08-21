@@ -7,7 +7,7 @@
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
     - cafe
-    - cafe-secret
+    - cafe-secret.old
     - ap-dataguard-alarm-policy
     - ap-logconf
     - ap-apple-uds
