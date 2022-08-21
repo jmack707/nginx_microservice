@@ -18,7 +18,7 @@
       ansible.builtin.command: 
         cmd: kubectl create secret tls cafe-secret --cert="{{app-crt}}" --key "{{app-key}}"
       ignore_errors: true
-      #no_log: true
+      no_log: true
 
     - name: Cafe APP
       import_role:
