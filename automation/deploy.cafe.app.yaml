@@ -14,11 +14,11 @@
     secret_state: create
 
   tasks:
-    - name: Cafe Secter 
-      ansible.builtin.command: 
-        cmd: kubectl create secret tls cafe-secret --cert=../vars/cafe.laptop.local.crt --key=../vars/cafe.laptop.local.key
-      ignore_errors: true
-      #no_log: true
+#    - name: Cafe Secter 
+#      ansible.builtin.command: 
+#        cmd: kubectl create secret tls cafe-secret --cert=../vars/cafe.laptop.local.crt --key=../vars/cafe.laptop.local.key
+#      ignore_errors: true
+#      no_log: true
 
     - name: Cafe APP
       import_role:
