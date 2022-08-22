@@ -1,0 +1,23 @@
+---
+# tasks file for roles/deploy_cafe
+
+- name: Manage Cafe APP Deployment
+  kubernetes.core.k8s:
+    namespace: default
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
+  with_items: 
+    - cafe
+    - cafe-secret
+    - ap-dataguard-alarm-policy
+    - ap-logconf
+    - ap-apple-uds
+    - cafe-ingress
+
+- name: Manage Ingresslink and ExternalDNS CRD
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
+  with_items: 
+    - vs-ingresslink
+    - edns-cafe

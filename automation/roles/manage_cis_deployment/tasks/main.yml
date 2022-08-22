@@ -1,0 +1,36 @@
+---
+# tasks file for roles/install_cis
+- name: Modify Service Account, Cluster Role and Cluster Role Binding
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/bigip-ctlr-clusterrole.yaml') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes
+
+- name: Modify CRD Schea
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/customresourcedefinitions.yaml') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes
+
+- name: Modify BIGIP CTRL Manifest
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/f5-bigip-ctlr-deployment.yaml') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes
+
+- name: Modify BIGIP CTRL Manifest
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/f5-bigip-ctlr-deployment.yaml') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes 
+
+- name: Modify Kubernetes Tunnel configuration
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/f5-bigip-node.yaml') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes     
