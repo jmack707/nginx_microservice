@@ -3,7 +3,7 @@
 - name: Echo the BIGIP password
   shell: echo $BIGIP_PASSWD
   environment: 
-    BIGIP_PASSWD: "{{ bigip_passwd }}"
+    BIGIP_PASSWD: "{{ app_cert }}"
   register: echo_result
 
 - name: Show the echo result
