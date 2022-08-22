@@ -6,7 +6,6 @@
 
   vars_files:
     - ../vars/k8s_secret.yaml
-    - ../vars/app-certs.yaml
 
   vars:
     vs_name: cafe.laptop.local
