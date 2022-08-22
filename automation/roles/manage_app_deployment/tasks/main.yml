@@ -1,11 +1,6 @@
 ---
 # tasks file for roles/deploy_cafe
 
-- name: Cafe Secret
-  ansible.builtin.command: 
-    cmd: kubectl create secret tls cafe-secret --cert="../vars/cafe.laptop.local.crt" --key="..vars/cafe.laptop.local.key"
-  ignore_errors: true
-
 - name: Manage Cafe APP Deployment
   kubernetes.core.k8s:
     namespace: default
@@ -13,7 +8,7 @@
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
     - cafe
-    #- cafe-secret
+    - cafe-secret
     - ap-dataguard-alarm-policy
     - ap-logconf
     - ap-apple-uds
