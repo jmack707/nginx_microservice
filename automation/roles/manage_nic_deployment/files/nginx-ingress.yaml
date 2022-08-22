@@ -28,8 +28,6 @@ spec:
           containerPort: 443
         - name: readiness-port
           containerPort: 8081
-        - name: dashboard
-          containerPort: 9000          
         - name: prometheus
           containerPort: 9113
         readinessProbe:
