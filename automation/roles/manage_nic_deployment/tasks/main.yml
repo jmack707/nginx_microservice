@@ -26,3 +26,4 @@
     - ingress-class
     - nginx-ingress
     - nginx-service
+    - nginx-dashboard
