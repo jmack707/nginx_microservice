@@ -38,13 +38,13 @@
       ansible.builtin.command: 
         cmd: kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username="{{nginx_jwt}}" --docker-password=none -n nginx-ingress
       ignore_errors: true
-      no_log: true
+      #no_log: true
 
     - name: BIG-IP credentials as Kubernetes Secrets
       ansible.builtin.command: 
         cmd: kubectl create secret generic bigip-login -n kube-system --from-literal=username=admin --from-literal=password="{{ bigip_passwd }}"
       ignore_errors: true
-      no_log: true
+      #no_log: true
 
     - name: CIS  
       import_role:
