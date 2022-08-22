@@ -23,7 +23,7 @@ metadata:
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   rules:
-  - host: dashboard.laptop.local
+  - host: nginx.laptop.local
     http:
       paths:
       - path: /dashboard.html
@@ -34,3 +34,17 @@ spec:
         backend:
           serviceName:  dashboard-svc
           servicePort: 80
+---
+apiVersion: "cis.f5.com/v1"
+kind: IngressLink
+metadata:
+  name: vs-dashboard.ingresslink
+  namespace: nginx-ingress
+spec:
+  virtualServerAddress: "10.1.10.110"
+  host: nginx.laptop.local
+  iRules:
+    - /Common/Proxy_Protocol_iRule
+  selector:
+    matchLabels:
+      app: nginx-ingress          
