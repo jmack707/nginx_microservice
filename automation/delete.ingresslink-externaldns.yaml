@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    vs_name: cafe.laptop.local
+    app-domain: "{{laptop.local}}"
     package_state: absent
     secret_state: delete
 

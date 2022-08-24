@@ -8,7 +8,7 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-    vs_name: cafe.laptop.local
+    vs_name: cafe."{{app-domain}}"
     package_state: absent
     secret_state: delete
 

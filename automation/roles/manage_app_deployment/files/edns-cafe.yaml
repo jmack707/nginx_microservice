@@ -6,7 +6,7 @@ metadata:
   labels:
     f5cr: "true"
 spec:
-  domainName: cafe.laptop.local
+  domainName: cafe."{{app-domain}}"
   dnsRecordType: A
   loadBalanceMethod: round-robin
   pools:
@@ -16,11 +16,11 @@ spec:
     monitors:
     - interval: 10
       recv: ""
-      send: "GET /tea HTTP/1.1\r\nHost: cafe.laptop.local\r\n"
+      send: "GET /tea HTTP/1.1\r\nHost: cafe."{{app-domain}}"\r\n"
       timeout: 31
       type: https
     - interval: 10
       recv: ""
-      send: "GET /coffee HTTP/1.1\r\nHost: cafe.laptop.local\r\n"
+      send: "GET /coffee HTTP/1.1\r\nHost: cafe."{{app-domain}}"\r\n"
       timeout: 31
       type: https
