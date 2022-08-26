@@ -8,7 +8,7 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-    vs_name: cafe."{{app-domain}}"
+    app-domian: 1laptop.local
     package_state: present
     secret_state: create
 
