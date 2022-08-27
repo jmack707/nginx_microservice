@@ -6,21 +6,21 @@ metadata:
   labels:
     f5cr: "true"
 spec:
-  domainName: cafe."{{app-domain}}"
+  domainName: cafe."{local_domain}}"
   dnsRecordType: A
   loadBalanceMethod: round-robin
   pools:
   - dnsRecordType: A
     loadBalanceMethod: round-robin
-    dataServerName: /Common/bigip1."{{local-app-domain}}"
+    dataServerName: /Common/bigip1."{{local_domain}}"
     monitors:
     - interval: 10
       recv: ""
-      send: "GET /tea HTTP/1.1\r\nHost: cafe."{{local-app-domain}}"\r\n"
+      send: "GET /tea HTTP/1.1\r\nHost: cafe."{{local-domain}}"\r\n"
       timeout: 31
       type: https
     - interval: 10
       recv: ""
-      send: "GET /coffee HTTP/1.1\r\nHost: cafe."{{local-app-domain}}"\r\n"
+      send: "GET /coffee HTTP/1.1\r\nHost: cafe."{{local-domain}}"\r\n"
       timeout: 31
       type: https

@@ -8,7 +8,7 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-    local-app-domian: 1laptop.local
+    local_domain: 1laptop.local
     package_state: present
     secret_state: create
 
