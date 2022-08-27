@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    app-domain: "{{laptop.local}}"
+    local_domain: 1laptop.local
     package_state: absent
     secret_state: delete
 

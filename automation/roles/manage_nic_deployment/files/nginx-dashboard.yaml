@@ -42,7 +42,7 @@ metadata:
   namespace: nginx-ingress
 spec:
   virtualServerAddress: "10.1.10.110"
-  host: nginx."{{app-domain}}"
+  host: nginx."{{local-domain}}"
   iRules:
     - /Common/Proxy_Protocol_iRule
   selector:
