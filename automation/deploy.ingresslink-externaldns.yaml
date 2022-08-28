@@ -51,13 +51,12 @@
         name: manage_cis_deployment
 
     - name: Template create Dashboard Yaml file
-      host: localhost
       ansible.builtin.template: 
         src: ./roles/manage_nic_deployment/templates/nginx-dashboard.js
         dest: ./roles/manage_nic_deployment/files/nginx-dashboard.yaml
         force: yes        
       connection: local  
-      #delegate_to: localhost
+      delegate_to: localhost
       
     - name: NGINX IC
       import_role:
