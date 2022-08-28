@@ -50,6 +50,12 @@
       import_role:
         name: manage_cis_deployment
 
+    - name: Template create Dashboard Yaml file
+      ansible.builtin.template: 
+        src: ./templates/nginx-dashbaord.js
+        dest: ./files/nginx-dashboard.yaml
+        force: yes        
+
     - name: NGINX IC
       import_role:
         name: manage_nic_deployment

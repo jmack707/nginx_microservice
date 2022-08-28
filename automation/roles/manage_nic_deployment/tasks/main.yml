@@ -1,10 +1,5 @@
 ---
 # tasks file for roles/install_nic
-- name: Template create Dashboard Yaml file
-  ansible.builtin.template: 
-    src: ./templates/nginx-dashbaord.js
-    dest: ./files/nginx-dashboard.yaml
-    force: yes
 
 - name: Manage NGINX NIC Deployment
   kubernetes.core.k8s:
