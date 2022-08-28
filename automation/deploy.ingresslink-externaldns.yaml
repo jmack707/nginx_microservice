@@ -55,7 +55,8 @@
         src: ./templates/nginx-dashbaord.js
         dest: ./files/nginx-dashboard.yaml
         force: yes        
-
+      delegate_to: localhost
+      
     - name: NGINX IC
       import_role:
         name: manage_nic_deployment
