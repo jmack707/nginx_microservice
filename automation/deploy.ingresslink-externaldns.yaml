@@ -52,7 +52,7 @@
 
     - name: Template create Dashboard Yaml file
       ansible.builtin.template: 
-        src: ./templates/nginx-dashbaord.js
+        src: ./templates/nginx-dashboard.js
         dest: ./files/nginx-dashboard.yaml
         force: yes        
       delegate_to: localhost
