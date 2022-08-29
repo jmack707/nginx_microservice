@@ -5,10 +5,8 @@
   gather_facts: false
 
   vars:
-    local_domain: 1laptop.local
     package_state: absent
     secret_state: delete
-    nginx_hostname: nginx.local
 
   tasks:
     - name: Delete a nginx-ingress namespace
