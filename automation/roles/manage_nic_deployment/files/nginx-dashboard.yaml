@@ -42,7 +42,7 @@ metadata:
   namespace: nginx-ingress
 spec:
   virtualServerAddress: "10.1.10.110"
-  host: "{{nginx_hostname}}"
+  host: nginx.1broken.net
   iRules:
     - /Common/Proxy_Protocol_iRule
   selector:
