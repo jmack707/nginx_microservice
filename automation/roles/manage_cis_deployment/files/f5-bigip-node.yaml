@@ -11,4 +11,4 @@ metadata:
     flannel.alpha.coreos.com/public-ip: "{{bigip_selfip}}"
 spec:
   #Replace Subnet with your BIGIP Flannel Subnet
-  podCIDR: "{{bigip_tunnel_cidr}}"
+  podCIDR: 10.244.20.0/24
