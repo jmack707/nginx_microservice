@@ -23,7 +23,7 @@ metadata:
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   rules:
-  - host: nginx."{{nginx_hostname}}"
+  - host: {{nginx_hostname}}
     http:
       paths:
       - path: /dashboard.html
@@ -42,7 +42,7 @@ metadata:
   namespace: nginx-ingress
 spec:
   virtualServerAddress: "10.1.10.110"
-  host: nginx."{{local-domain}}"
+  host: nginx.1broken.net
   iRules:
     - /Common/Proxy_Protocol_iRule
   selector:
