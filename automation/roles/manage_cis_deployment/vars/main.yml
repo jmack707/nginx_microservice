@@ -7,5 +7,5 @@ bigip_selfip: 10.1.20.4
 bigip_address: 10.1.1.245
 bigip_dns_address: 10.1.1.245
 bigip_tunnel_name: k8s-tunnel
-bigip_tunnel_cidr: 10.244.0.0/16
+bigip_tunnel_cidr: 10.244.20.0/24
 
