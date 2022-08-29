@@ -6,7 +6,7 @@ metadata:
   labels:
     f5cr: "true"
 spec:
-  domainName: cafe."{local_domain}}"
+  domainName: "cafe.{{local_domain}}"
   dnsRecordType: A
   loadBalanceMethod: round-robin
   pools:
