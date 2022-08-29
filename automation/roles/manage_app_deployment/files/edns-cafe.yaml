@@ -12,15 +12,15 @@ spec:
   pools:
   - dnsRecordType: A
     loadBalanceMethod: round-robin
-    dataServerName: /Common/bigip1."{{local_domain}}"
+    dataServerName: /Common/"{bigip_name}}"
     monitors:
     - interval: 10
       recv: ""
-      send: "GET /tea HTTP/1.1\r\nHost: cafe."{{local-domain}}"\r\n"
+      send: "GET /tea HTTP/1.1\r\nHost: cafe.{{local_domain}}\r\n"
       timeout: 31
       type: https
     - interval: 10
       recv: ""
-      send: "GET /coffee HTTP/1.1\r\nHost: cafe."{{local-domain}}"\r\n"
+      send: "GET /coffee HTTP/1.1\r\nHost: cafe.{{local_domain}}\\r\n"
       timeout: 31
       type: https

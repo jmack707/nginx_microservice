@@ -1,2 +1,3 @@
 ---
 # vars file for roles/deploy_cafe
+local_domain: local
