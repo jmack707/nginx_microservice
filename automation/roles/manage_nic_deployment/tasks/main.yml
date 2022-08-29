@@ -27,4 +27,9 @@
     - ingress-class
     - nginx-ingress
     - nginx-service
-    - nginx-dashboard
+    #- nginx-dashboard
+
+- name: Manage Dashboard Deployment
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/dashbaord.yaml') | from_yaml_all }}" 
