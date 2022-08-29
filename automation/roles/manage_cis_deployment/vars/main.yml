@@ -3,7 +3,7 @@
 bigip_name: bigip1.local
 bigip_mac: 00:50:56:bb:f7:a7
 pods_cidr_net: 10.244.20.0/16
-bigip_selfip: 10.1.20.4
+bigip_public_ip: 10.1.20.4
 bigip_address: 10.1.1.245
 bigip_dns_address: 10.1.1.245
 bigip_tunnel_name: k8s-tunnel
