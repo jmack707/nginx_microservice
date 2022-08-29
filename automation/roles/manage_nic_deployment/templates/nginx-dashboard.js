@@ -23,7 +23,7 @@ metadata:
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   rules:
-  - host: nginx."{{local-domain}}"
+  - host: nginx."{{nginx_hostname}}"
     http:
       paths:
       - path: /dashboard.html

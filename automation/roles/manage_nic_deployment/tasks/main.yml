@@ -32,4 +32,4 @@
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/nginx-dashboard.yaml') | from_yaml_all }}" 
+    definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | to_yaml }}" 
