@@ -24,13 +24,13 @@
 - name: Modify BIGIP CTRL Manifest
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/f5-bigip-ctlr-deployment.yaml') | from_yaml_all }}"
+    definition: "{{ lookup('template', 'files/f5-bigip-ctlr-deployment.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes 
 
 - name: Modify Kubernetes Tunnel configuration
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/f5-bigip-node.yaml') | from_yaml_all }}"
+    definition: "{{ lookup('template', 'files/f5-bigip-node.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes     
