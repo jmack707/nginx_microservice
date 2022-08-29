@@ -6,6 +6,6 @@ pods_cidr_net: 10.244.20.0/16
 bigip_public_ip: 10.1.20.4
 bigip_mgt: 10.1.1.245
 bigip_dns_address: 10.1.1.245
-bigip_tunnel_name: k8s-vxlan
+bigip_tunnel_name: fl-vxlan
 bigip_tunnel_cidr: 10.244.20.0/24
 
