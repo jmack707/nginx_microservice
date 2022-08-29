@@ -1,6 +1,6 @@
 ---
 - name: Playbook for Using a Variety of Tower Modules
-  hosts: master
+  hosts: master1
   gather_facts: false
   
 
