@@ -1,5 +1,6 @@
 ---
 # tasks file for roles/install_nic
+
 - name: Manage NGINX NIC Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"
@@ -26,4 +27,9 @@
     - ingress-class
     - nginx-ingress
     - nginx-service
-    - nginx-dashboard
+    #- nginx-dashboard
+
+- name: Manage Dashboard Deployment
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'files/nginx-dashboard.yaml') | from_yaml_all }}" 

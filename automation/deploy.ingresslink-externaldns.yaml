@@ -8,9 +8,8 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-    vs_name: cafe.laptop.local
-    package_state: present
-    secret_state: create
+      package_state: present
+      secret_state: create
 
   tasks:
     - name: Ensure Pip is installed

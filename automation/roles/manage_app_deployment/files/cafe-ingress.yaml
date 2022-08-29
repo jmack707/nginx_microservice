@@ -14,10 +14,10 @@ spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
   - hosts:
-    - cafe.laptop.local
+    - "cafe.{{local_domain}}"
     secretName: cafe-secret
   rules:
-  - host: cafe.laptop.local
+  - host: "cafe.{{local_domain}}"
     http:
       paths:
       - path: /tea

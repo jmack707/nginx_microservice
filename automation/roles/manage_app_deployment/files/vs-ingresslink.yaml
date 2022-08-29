@@ -4,8 +4,8 @@ metadata:
   name: vs-ingresslink
   namespace: nginx-ingress
 spec:
-  virtualServerAddress: "10.1.10.100"
-  host: cafe.laptop.local
+  virtualServerAddress: "{{app_address}}"
+  host: "cafe.{{local_domain}}"
   iRules:
     - /Common/Proxy_Protocol_iRule
   selector:

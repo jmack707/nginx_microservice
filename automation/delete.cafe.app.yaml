@@ -8,7 +8,6 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-    vs_name: cafe.laptop.local
     package_state: absent
     secret_state: delete
 
