@@ -1,3 +1,4 @@
 ---
 # vars file for roles/deploy_cafe
 local_domain: local
+bigip_name: bigip.local
