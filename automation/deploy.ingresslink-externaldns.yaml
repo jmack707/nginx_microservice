@@ -11,6 +11,7 @@
     local_domain: 1laptop.local
     package_state: present
     secret_state: create
+    nginx-hostname: nginx.1broken.net
 
   tasks:
     - name: Ensure Pip is installed
@@ -50,14 +51,6 @@
       import_role:
         name: manage_cis_deployment
 
-    - name: Template create Dashboard Yaml file
-      ansible.builtin.template: 
-        src: ./roles/manage_nic_deployment/templates/nginx-dashboard.js
-        dest: ./roles/manage_nic_deployment/files/nginx-dashboard.yaml
-        force: yes        
-      connection: local  
-      delegate_to: localhost
-      
     - name: NGINX IC
       import_role:
         name: manage_nic_deployment
