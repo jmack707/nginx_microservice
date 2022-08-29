@@ -11,7 +11,7 @@
     local_domain: 1laptop.local
     package_state: present
     secret_state: create
-    nginx_hostname: "nginx.1broken.net"
+    nginx_hostname: "nginx.local"
 
   tasks:
     - name: Ensure Pip is installed

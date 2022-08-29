@@ -1,3 +1,2 @@
 ---
 # vars file for roles/install_nic
-nginx_hostname: "nginx.1broken.net"
