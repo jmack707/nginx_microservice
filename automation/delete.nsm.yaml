@@ -1,17 +1,14 @@
 ---
-# Cafe App
+# Remove NSM 
 - name: Install Cafe App
   hosts: master
   gather_facts: false
 
-
   vars:
-    local_domain: 1laptop.local
     package_state: present
-    secret_state: create
 
   tasks:
 
-    - name: Cafe APP
+    - name: NSM Deploy
       import_role:
-        name: manage_app_deployment
+        name: manage_service_mesh_deployment

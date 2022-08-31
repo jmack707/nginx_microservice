@@ -1,24 +1,26 @@
 ---
-# Cafe App
-- name: Install Cafe App
+# Deploy NSM
+- name: Install NGINX Service Mesh
   hosts: master
   gather_facts: false
 
-  vars_files:
-    - ../vars/k8s_secret.yaml
-
   vars:
-    local_domain: 1laptop.local
     package_state: present
-    secret_state: create
-
+    
   tasks:
-#    - name: Cafe Secret
-#      ansible.builtin.command: 
-#        cmd: kubectl create secret tls cafe-secret --cert="{{app-crt}}" --key="{{app-key}}"
-#      ignore_errors: true
-#      no_log: true
 
-    - name: Cafe APP
+    - name: Move Mesh Files
+      ansible.builtin.copy:
+        src: files/nginx-meshctl_linux
+        dest: /usr/local/bin/nginx-meshctl
+        mode: '0764'
+        force: yes
+
+    - name: NSM Deploy
       import_role:
-        name: manage_app_deployment
+        name: manage_service_mesh_deployment
+    
+    - name: Install NGINX Service Mesh
+      ansible.builtin.command: nginx-meshctl deploy --prometheus-address "prometheus.nsm-monitoring.svc:9090" --telemetry-exporters "type=otlp,host=otel-collector.nsm-monitoring.svc,port=4317" --telemetry-sampler-ratio 1 --disabled-namespaces "nsm-monitoring"
+
+

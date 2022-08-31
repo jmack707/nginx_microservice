@@ -1,10 +1,17 @@
 ---
 # tasks file for manage_service_mesh_deployment
-- name: Move Mesh Files
-  ansible.builtin.copy:
-    src: files/nginx-meshctl_linux
-    dest: /usr/local/bin/nginx-meshctl
-    mode: '0764'
+
+- name: Manage NGINX NIC Deployment
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
+  with_items: 
+    - prometheus
+    - grafana
+    - otel-collector
+    - jaeger
+
+
 
   
 
