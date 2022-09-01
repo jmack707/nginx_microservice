@@ -11,7 +11,7 @@
 
     - name: Move Mesh Files
       ansible.builtin.copy:
-        src: files/nginx-meshctl_linux
+        src: nginx-meshctl_linux
         dest: /usr/local/bin/nginx-meshctl
         mode: '0764'
         force: yes
