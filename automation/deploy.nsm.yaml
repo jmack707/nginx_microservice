@@ -15,6 +15,7 @@
         dest: /usr/local/bin/nginx-meshctl
         mode: '0764'
         force: yes
+      become: yes
 
     - name: NSM Deploy
       import_role:
