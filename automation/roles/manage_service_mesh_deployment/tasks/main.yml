@@ -4,7 +4,7 @@
 - name: Manage NGINX NIC Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
+    definition: "{{ lookup('file', 'files/{{item}}.yml') | from_yaml_all }}"  
   with_items: 
     - prometheus
     - grafana
