@@ -5,10 +5,24 @@
   gather_facts: false
 
   vars:
-    package_state: present
-    
-  tasks:
+      package_state: present
+      secret_state: create
 
+  tasks:
+    - name: Ensure Pip is installed
+      ansible.builtin.package:
+        name: python3-pip
+        state: present
+      become: true
+
+    - name: Ensure Kubernetes is installed
+      pip:
+        name: 
+          - Kubernetes>=12.0.0
+          - PyYAML
+          - kubernetes-validate
+        state: present
+      become: true 
     - name: Move Mesh Files
       ansible.builtin.copy:
         src: files/nginx-meshctl_linux
