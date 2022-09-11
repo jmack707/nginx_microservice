@@ -6,6 +6,7 @@
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yml') | from_yaml_all }}"  
   with_items: 
+    - kube-apiserver.yml
     - prometheus
     - grafana
     - otel-collector

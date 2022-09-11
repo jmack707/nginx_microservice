@@ -1,0 +1,7 @@
+spec:
+  containers:
+  - command:
+    - kube-apiserver
+    - --service-account-api-audiences=api
+    - --service-account-issuer=api
+    - --service-account-signing-key-file=/etc/kubernetes/pki/sa.key
