@@ -25,10 +25,11 @@
       become: true 
     - name: Move Mesh Files
       ansible.builtin.copy:
-        src: files/nginx-meshctl_linux
+        src: nginx-meshctl_linux
         dest: /usr/local/bin/nginx-meshctl
-        mode: '0764'
+        mode: '0755'
         force: yes
+      become: yes
 
     - name: NSM Deploy
       import_role:
@@ -36,5 +37,5 @@
     
     - name: Install NGINX Service Mesh
       ansible.builtin.command: nginx-meshctl deploy --prometheus-address "prometheus.nsm-monitoring.svc:9090" --telemetry-exporters "type=otlp,host=otel-collector.nsm-monitoring.svc,port=4317" --telemetry-sampler-ratio 1 --disabled-namespaces "nsm-monitoring"
-
+      become: yes
 
