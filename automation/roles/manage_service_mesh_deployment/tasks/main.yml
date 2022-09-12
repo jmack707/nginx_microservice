@@ -1,7 +1,7 @@
 ---
 # tasks file for manage_service_mesh_deployment
 
-- name: Manage NGINX NIC Deployment
+- name: Manage NSM Packages
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yml') | from_yaml_all }}"  
