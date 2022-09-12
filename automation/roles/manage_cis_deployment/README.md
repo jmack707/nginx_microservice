@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role creates the CIS container 
 
 Requirements
 ------------
@@ -11,7 +11,15 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+bigip_name: bigip1.local
+bigip_mac: 00:50:56:bb:f7:a7
+pods_cidr_net: 10.244.20.0/16
+bigip_public_ip: 10.1.20.4
+bigip_mgt: 10.1.1.245
+bigip_dns_mgt: 10.1.1.245
+bigip_tunnel_name: fl-vxlan
+bigip_tunnel_cidr: 10.244.20.0/24
+
 
 Dependencies
 ------------
