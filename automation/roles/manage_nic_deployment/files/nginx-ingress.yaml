@@ -57,11 +57,7 @@ spec:
         volumeMounts:
         - mountPath: /run/spire/sockets
           name: spire-agent-socket
-      volumes:
-      - csi:
-        driver: wlapi-mounter.spire.nginx.com
-        readOnly: true
-        name: spire-agent-socket          
+       
         args:
           - -nginx-plus
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
@@ -80,3 +76,8 @@ spec:
           - -spire-agent-address=/run/spire/sockets/agent.sock
       imagePullSecrets:
         - name: regcred
+      volumes:
+      - csi:
+        driver: wlapi-mounter.spire.nginx.com
+        readOnly: true
+        name: spire-agent-socket
