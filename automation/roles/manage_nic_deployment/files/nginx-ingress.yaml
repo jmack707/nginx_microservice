@@ -19,6 +19,11 @@ spec:
         prometheus.io/port: "9113"
     spec:
       serviceAccountName: nginx-ingress
+      volumes:
+      - csi:
+        driver: wlapi-mounter.spire.nginx.com
+        readOnly: true
+        name: spire-agent-socket      
       containers:
       - image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:2.3.0
         imagePullPolicy: IfNotPresent
@@ -75,8 +80,3 @@ spec:
           - -spire-agent-address=/run/spire/sockets/agent.sock
       imagePullSecrets:
         - name: regcred
-      volumes:
-      - csi:
-        driver: wlapi-mounter.spire.nginx.com
-        readOnly: true
-        name: spire-agent-socket
