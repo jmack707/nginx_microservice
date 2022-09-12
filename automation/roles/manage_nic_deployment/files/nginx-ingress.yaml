@@ -8,11 +8,11 @@ spec:
   selector:
     matchLabels:
       app: nginx-ingress
-      spiffe.io/spiffeid: "true"
   template:
     metadata:
       labels:
         app: nginx-ingress
+        spiffe.io/spiffeid: "true"
       annotations:
         nsm.nginx.com/enable-ingress: "true"
         prometheus.io/scrape: "true"
