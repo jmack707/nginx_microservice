@@ -8,11 +8,13 @@ spec:
   selector:
     matchLabels:
       app: nginx-ingress
+      spiffe.io/spiffeid: "true"
   template:
     metadata:
       labels:
         app: nginx-ingress
       annotations:
+        nsm.nginx.com/enable-ingress: "true"
         prometheus.io/scrape: "true"
         prometheus.io/port: "9113"
     spec:
@@ -67,6 +69,7 @@ spec:
           - -enable-prometheus-metrics
           - -enable-latency-metrics
          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
+         - -spire-agent-address=/run/spire/sockets/agent.sock
       imagePullSecrets:
         - name: regcred
       volumes:
