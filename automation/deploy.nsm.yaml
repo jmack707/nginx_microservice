@@ -35,7 +35,8 @@
       import_role:
         name: manage_service_mesh_deployment
     
-    - name: Install NGINX Service Mesh
-      ansible.builtin.command: nginx-meshctl deploy --prometheus-address "prometheus.nsm-monitoring.svc:9090" --telemetry-exporters "type=otlp,host=otel-collector.nsm-monitoring.svc,port=4317" --telemetry-sampler-ratio 1 --disabled-namespaces "nsm-monitoring"
-      become: yes
+#    - name: Install NGINX Service Mesh
+#      ansible.builtin.command: nginx-meshctl deploy --prometheus-address "prometheus.nsm-monitoring.svc:9090" --telemetry-exporters "type=otlp,host=otel-collector.nsm-monitoring.svc,port=4317" --telemetry-sampler-ratio 1 --disabled-namespaces "nsm-monitoring"
+#      become: yes
+      
 
