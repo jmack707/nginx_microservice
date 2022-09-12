@@ -69,7 +69,7 @@ spec:
           - -enable-prometheus-metrics
           - -enable-latency-metrics
          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
-         - -spire-agent-address=/run/spire/sockets/agent.sock
+          - -spire-agent-address=/run/spire/sockets/agent.sock
       imagePullSecrets:
         - name: regcred
       volumes:
