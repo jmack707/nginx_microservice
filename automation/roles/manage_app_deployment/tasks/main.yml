@@ -9,7 +9,7 @@
   with_items: 
     - cafe
     - cafe-secret
-    - ap-dataguard-alarm-policy
+    - ap-dataguard-alarm-policy2
     - ap-logconf
     - ap-apple-uds
 
