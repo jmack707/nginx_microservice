@@ -23,7 +23,7 @@ metadata:
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   rules:
-  - host: nginx.1broken.net 
+  - host: "nginx.{{local_domain}}"
     http:
       paths:
       - path: /dashboard.html
@@ -41,8 +41,8 @@ metadata:
   name: vs-dashboard.ingresslink
   namespace: nginx-ingress
 spec:
-  virtualServerAddress: "10.1.10.110"
-  host: nginx.1broken.net
+  virtualServerAddress: "{{nginx_dashboard_address}}"
+  host: "nginx.{{local_domain}}"
   iRules:
     - /Common/Proxy_Protocol_iRule
   selector:
