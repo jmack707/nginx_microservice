@@ -68,7 +68,6 @@ spec:
          #- -external-service=nginx-ingress
           - -enable-prometheus-metrics
           - -enable-latency-metrics
-         #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
-          - -spire-agent-address=/run/spire/sockets/agent.sock
+         #- -global-configuration=$(POD_NAMESPACE)/nginx-configuratio
       imagePullSecrets:
         - name: regcred
