@@ -14,7 +14,6 @@ spec:
         app: nginx-ingress
         spiffe.io/spiffeid: "true"
       annotations:
-        nsm.nginx.com/enable-ingress: "true"
         prometheus.io/scrape: "true"
         prometheus.io/port: "9113"
     spec:
