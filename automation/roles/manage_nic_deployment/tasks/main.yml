@@ -25,7 +25,7 @@
     - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
-    - ingress-gress-nsm.yaml
+    - ingress-gress-nsm
     - nginx-service
 
 - name: Manage Dashboard Deployment
