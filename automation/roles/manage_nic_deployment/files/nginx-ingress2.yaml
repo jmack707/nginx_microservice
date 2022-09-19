@@ -4,7 +4,7 @@ metadata:
   name: nginx-ingress
   namespace: nginx-ingress
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-ingress
@@ -13,6 +13,7 @@ spec:
       labels:
         app: nginx-ingress
         spiffe.io/spiffeid: "true"
+        nsm.nginx.com/deployment: nginx-ingress
       annotations:
         nsm.nginx.com/enable-ingress: "true"
         prometheus.io/scrape: "true"
@@ -68,7 +69,7 @@ spec:
           - -app-protect-log-level=info
          #- -v=3 # Enables extensive logging. Useful for troubleshooting.
           - -report-ingress-status
-         #- -external-service=nginx-ingress
+          - -external-service=nginx-ingress
           - -enable-prometheus-metrics
           - -enable-latency-metrics
          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
