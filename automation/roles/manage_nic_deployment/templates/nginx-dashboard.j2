@@ -22,6 +22,9 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
+  tls:
+  - hosts: "nginx.{{local_domain}}"
+    secretName: default-server-secret
   rules:
   - host: "nginx.{{local_domain}}"
     http:
