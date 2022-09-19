@@ -23,7 +23,7 @@ metadata:
 spec:
   # ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
-  - hosts: "nginx.{{local_domain}}"
+  - hosts: "nginx.1broken.net"
     secretName: default-server-secret
   rules:
   - host: "nginx.{{local_domain}}"
