@@ -25,11 +25,10 @@
     - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
-    - nginx-ingress
+    - nginx-ingress-nsm
     - nginx-service
-    #- nginx-dashboard
 
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
     state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/nginx-dashboard.yaml') | from_yaml_all }}" 
+    definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | from_yaml_all }}" 
