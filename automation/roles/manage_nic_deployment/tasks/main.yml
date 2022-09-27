@@ -31,7 +31,7 @@
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
-    - [nginx-ingress]
+    - nginx-ingress
     - nginx-service
   when: nginx-ingress is nginx-ingress
 
