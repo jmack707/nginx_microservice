@@ -33,7 +33,6 @@
   with_items:
     - nginx-ingress
     - nginx-service
-  when: nginx-ingress is defined
 
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
