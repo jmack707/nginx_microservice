@@ -25,15 +25,8 @@
     - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
-
-- name: Manage NGINX NIC Deployment
-  kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
-  with_items:
-    - nginx-ingress
+    - {{with_nsm}}
     - nginx-service
-  when: nginx-ingress == "nginx-ingress"
 
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
