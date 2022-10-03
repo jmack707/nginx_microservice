@@ -5,10 +5,16 @@
   gather_facts: false
 
   vars:
-    package_state: present
+    package_state: absent
 
   tasks:
 
     - name: NSM Deploy
       import_role:
         name: manage_service_mesh_deployment
+
+    - name: Delete a nginx-mesh namespace
+      kubernetes.core.k8s:
+        name: nginx-mesh
+        kind: Namespace
+        state: "{{package_state}}"
