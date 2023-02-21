@@ -28,3 +28,7 @@
     - "{{with_nsm}}"
     - nginx-service
 
+- name: Manage Dashboard Deployment
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'files/nginx-dashboard.yaml') | from_yaml_all }}"

@@ -12,7 +12,7 @@ spec:
   selector:
     app: nginx-ingress
 ---
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: dashboard-ingress
@@ -48,7 +48,7 @@ spec:
   virtualServerAddress: "{{nginx_dashboard_address}}"
   host: "nginx.{{local_domain}}"
   iRules:
-    - /Common/Shared/Proxy_Protocol_iRule
+    - /Common/Proxy_Protocol_iRule
   selector:
     matchLabels:
       app: nginx-ingress          
