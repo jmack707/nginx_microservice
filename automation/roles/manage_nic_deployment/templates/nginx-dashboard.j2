@@ -48,7 +48,7 @@ spec:
   virtualServerAddress: "{{nginx_dashboard_address}}"
   host: "nginx.{{local_domain}}"
   iRules:
-    - /Common/Proxy_Protocol_iRule
+    - /Common/Shared/Proxy_Protocol_iRule
   selector:
     matchLabels:
       app: nginx-ingress          
