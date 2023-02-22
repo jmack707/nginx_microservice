@@ -31,6 +31,8 @@ spec:
           containerPort: 8081
         - name: prometheus
           containerPort: 9113
+        - name: dashboard
+          containerPort: 9000          
         readinessProbe:
           httpGet:
             path: /nginx-ready
@@ -62,7 +64,7 @@ spec:
           - -enable-snippets
           - -enable-app-protect
           - -app-protect-log-level=info
-         #- -v=3 # Enables extensive logging. Useful for troubleshooting.
+          - -v=3 # Enables extensive logging. Useful for troubleshooting.
           - -report-ingress-status
          #- -external-service=nginx-ingress
           - -enable-prometheus-metrics
