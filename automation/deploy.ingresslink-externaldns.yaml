@@ -27,17 +27,6 @@
         group: "{{ansible_user}}"
         mode: '0700'
     
-    - name: Copy .kube directory
-      command: cp /etc/rancher/k3s/k3s.yaml ~/.kube
-      become: true      
-    
-    - name: Set ownership and permissions
-      file:
-        path: ~/.kube
-        owner: "{{ansible_user}}"
-        group: "{{ansible_user}}"
-        mode: '0600'
-        
     - name: Ensure Kubernetes is installed
       pip:
         name: 
