@@ -30,6 +30,7 @@
     - name: Copy .kube directory
       command: cp /root/.kube ~/.kube
       become_user: "{{ansible_user}}"
+      become: true 
     
     - name: Set ownership and permissions
       file:
