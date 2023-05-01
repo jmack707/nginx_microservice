@@ -28,7 +28,7 @@
         mode: '0700'
     
     - name: Copy .kube directory
-      command: cp root/.kube ~/.kube
+      command: cp /root/.kube ~/.kube
       become_user: "{{ansible_user}}"
     
     - name: Set ownership and permissions
