@@ -19,23 +19,23 @@
       become: true
 
     - name: Create local .kube directory
-      become_user: {{ansible_user}}
+      become_user: "{{ansible_user}}"
       file:
         path: ~/.kube
         state: directory
-        owner: {{ansible_user}}
-        group: {{ansible_user}}
+        owner: "{{ansible_user}}"
+        group: "{{ansible_user}}"
         mode: '0700'
     
     - name: Copy .kube directory
       command: cp root/.kube ~/.kube
-      become_user: {{ansible_user}}
+      become_user: "{{ansible_user}}"
     
     - name: Set ownership and permissions
       file:
         path: ~/.kube
-        owner: {{ansible_user}}
-        group: {{ansible_user}}
+        owner: "{{ansible_user}}"
+        group: "{{ansible_user}}"
         mode: '0600'
         
     - name: Ensure Kubernetes is installed
