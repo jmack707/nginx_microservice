@@ -28,9 +28,8 @@
         mode: '0700'
     
     - name: Copy .kube directory
-      command: cp /root/.kube ~/.kube
+      command: cp /etc/rancher/k3s/k3s.yaml ~/.kube
       become_user: "{{ansible_user}}"
-      become: true 
     
     - name: Set ownership and permissions
       file:
