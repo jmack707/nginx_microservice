@@ -12,7 +12,7 @@ spec:
   pools:
   - dnsRecordType: A
     loadBalanceMethod: round-robin
-    dataServerName: "/Common/0"
+    dataServerName: "/Common/bigip1.1broken.net"
     monitors:
     - interval: 10
       recv: ""
