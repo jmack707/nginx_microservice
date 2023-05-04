@@ -12,4 +12,12 @@
     - ap-dataguard-alarm-policy
     - ap-logconf
     - ap-apple-uds
-
+- name: Manage Ingresslink and ExternalDNS CRD
+  kubernetes.core.k8s:
+    namespace: default
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"  
+  with_items: 
+    - cafe-ingress
+    - vs-ingresslink
+    - edns-cafe
