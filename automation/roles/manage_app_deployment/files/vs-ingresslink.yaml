@@ -7,7 +7,7 @@ spec:
   virtualServerAddress: "{{app_address}}"
   host: "cafe.{{local_domain}}"
   iRules:
-    - /Common/Proxy_Protocol_iRule
+    - /Common/Shared/Proxy_Protocol_iRule
   selector:
     matchLabels:
       app: nginx-ingress
