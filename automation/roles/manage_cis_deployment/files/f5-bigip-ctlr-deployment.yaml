@@ -49,7 +49,7 @@ spec:
               "--gtm-bigip-url={{bigip_dns_mgt}}",
               "--pool-member-type=cluster",
               "--flannel-name={{bigip_tunnel_name}}",
-              "--log-level=WARNING",
+              "--log-level=NOTICE",
               "--insecure=true",
               "--custom-resource-mode=true",
               "--as3-validation=true",
