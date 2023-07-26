@@ -14,7 +14,6 @@
     - rbac
     - ap-rbac
     - apdos-rbac
-    - default-server-secret
     - appprotect.f5.com_aplogconfs
     - appprotect.f5.com_appolicies
     - appprotect.f5.com_apusersigs
@@ -27,6 +26,11 @@
     - ingress-class
     - "{{with_nsm}}"
     - nginx-service
+
+- name: NGINX Secrets
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'templates/nginx-server-secret.j2') | from_yaml_all }}"      
 
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
