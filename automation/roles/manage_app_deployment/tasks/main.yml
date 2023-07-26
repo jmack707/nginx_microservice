@@ -13,9 +13,10 @@
 
 - name: APP Secrets
   kubernetes.core.k8s:
+    namespace: default
     state: "{{ package_state }}"
     definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}" 
-    
+
 - name: Manage Ingresslink and ExternalDNS CRD
   kubernetes.core.k8s:
     namespace: default
