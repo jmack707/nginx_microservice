@@ -1,10 +1,5 @@
 ---
 # tasks file for roles/deploy_cafe
-- name: APP Secrets
-  kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}"    
-
 - name: Manage Cafe APP Deployment
   kubernetes.core.k8s:
     namespace: default
@@ -16,6 +11,11 @@
     - ap-logconf
     - ap-apple-uds    
 
+- name: APP Secrets
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}" 
+    
 - name: Manage Ingresslink and ExternalDNS CRD
   kubernetes.core.k8s:
     namespace: default
