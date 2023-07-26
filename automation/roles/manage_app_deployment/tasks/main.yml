@@ -1,5 +1,9 @@
 ---
 # tasks file for roles/deploy_cafe
+- name: APP Secrets
+  kubernetes.core.k8s:
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}"    
 
 - name: Manage Cafe APP Deployment
   kubernetes.core.k8s:
@@ -8,7 +12,6 @@
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
     - cafe
-    - cafe-secret
     - ap-dataguard-alarm-policy
     - ap-logconf
     - ap-apple-uds    
