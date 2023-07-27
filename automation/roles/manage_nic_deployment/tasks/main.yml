@@ -24,6 +24,7 @@
     - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
+    - nginx-ingress
     - nginx-service
 
 - name: NGINX Secrets
