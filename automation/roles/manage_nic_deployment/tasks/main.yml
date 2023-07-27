@@ -24,9 +24,7 @@
     - appprotect-dos-arb-svc
     - nginx-config
     - ingress-class
-    - "{{with_nsm}}"
     - nginx-service
-    - nginx-dashboard
 
 - name: NGINX Secrets
   kubernetes.core.k8s:
