@@ -8,4 +8,5 @@ bigip_mgt: 10.1.1.245
 bigip_dns_mgt: 10.1.1.245
 bigip_tunnel_name: fl-vxlan
 bigip_tunnel_cidr: 10.244.20.0/24
-
+ipam_status: false
+deployment_type: ingress
