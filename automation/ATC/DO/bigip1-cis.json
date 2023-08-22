@@ -19,7 +19,7 @@
         "myDns": {
             "class": "DNS",
             "nameServers": [
-                "172.16.10.254"
+                "10.1.10.254"
             ],
             "search": [
                 "1broken.net"
@@ -28,7 +28,7 @@
         "myNtp": {
             "class": "NTP",
             "servers": [
-                "172.16.10.254"
+                "10.1.10.254"
             ],
             "timezone": "UTC"
         },
@@ -42,7 +42,7 @@
             "description": "xvlan tunnel for k8s",
             "tunnelType": "vxlan",
             "usePmtu": true,
-            "localAddress": "172.16.20.4",
+            "localAddress": "10.1.20.4",
             "key": 1,
             "port": 8472,
             "floodingType": "none",
@@ -68,7 +68,7 @@
         },
         "internal-self": {
             "class": "SelfIp",
-            "address": "172.16.20.4/24",
+            "address": "10.1.20.4/24",
             "vlan": "internal",
             "allowService": "all",
             "trafficGroup": "traffic-group-local-only"
@@ -86,14 +86,14 @@
         },
         "external-self": {
             "class": "SelfIp",
-            "address": "172.16.10.4/24",
+            "address": "10.1.10.4/24",
             "vlan": "external",
             "allowService": "none",
             "trafficGroup": "traffic-group-local-only"
         },
         "default": {
             "class": "Route",
-            "gw": "172.16.10.254",
+            "gw": "10.1.10.254",
             "network": "default",
             "mtu": 1500
         },               
