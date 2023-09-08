@@ -35,15 +35,15 @@ spec:
         backend:
           service:
             name: dashboard-svc
-              port:
-                name: http
+            port:
+              name: http
       - path: /api
         pathType: Prefix
         backend:
           service:
             name: dashboard-svc
-              port:
-                name: http
+            port:
+              name: http
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
