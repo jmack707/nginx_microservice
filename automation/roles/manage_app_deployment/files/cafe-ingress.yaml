@@ -21,10 +21,16 @@ spec:
     http:
       paths:
       - path: /tea
+        pathType: Prefix
         backend:
-          serviceName: tea-svc
-          servicePort: 80
+          service:
+            name: tea-svc
+            port: 
+              name: http
       - path: /coffee
+        pathType: Prefix
         backend:
-          serviceName: coffee-svc
-          servicePort: 80
+          service:
+            Name: coffee-svc
+            Port: 
+              name: http
