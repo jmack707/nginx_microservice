@@ -32,12 +32,16 @@ spec:
       paths:
       - path: /dashboard.html
         backend:
-          serviceName:  dashboard-svc
-          servicePort: 80
+          service:
+            name: dashboard-svc
+              port:
+                name: http
       - path: /api
         backend:
-          serviceName:  dashboard-svc
-          servicePort: 80
+          service:
+            name: dashboard-svc
+              port:
+                name: http
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
