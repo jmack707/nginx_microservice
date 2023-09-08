@@ -31,12 +31,14 @@ spec:
     http:
       paths:
       - path: /dashboard.html
+        pathType: Prefix
         backend:
           service:
             name: dashboard-svc
               port:
                 name: http
       - path: /api
+        pathType: Prefix
         backend:
           service:
             name: dashboard-svc
