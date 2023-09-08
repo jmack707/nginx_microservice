@@ -18,7 +18,14 @@
         state: present
       become: true
 
-
+    - name: Create local .kube directory
+      become_user: "{{ansible_user}}"
+      file:
+        path: ~/.kube
+        state: directory
+        owner: "{{ansible_user}}"
+        group: "{{ansible_user}}"
+        mode: '0700'
     
     - name: Ensure Kubernetes is installed
       pip:
