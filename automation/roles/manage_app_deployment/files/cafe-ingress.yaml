@@ -11,7 +11,7 @@ metadata:
     appprotect.f5.com/app-protect-security-log: "default/logconf"
     appprotect.f5.com/app-protect-security-log-destination: "syslog:server=syslog-svc.default:514" 
 spec:
-  # ingressClassName: nginx # use only with k8s version >= 1.18.0
+  ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
   - hosts:
     - "cafe.{{local_domain}}"
