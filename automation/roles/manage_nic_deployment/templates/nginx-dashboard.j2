@@ -12,7 +12,7 @@ spec:
   selector:
     app: nginx-ingress
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dashboard-ingress
@@ -31,13 +31,19 @@ spec:
     http:
       paths:
       - path: /dashboard.html
+        pathType: Prefix
         backend:
-          serviceName:  dashboard-svc
-          servicePort: 80
+          service:
+            name: dashboard-svc
+            port:
+              name: http
       - path: /api
+        pathType: Prefix
         backend:
-          serviceName:  dashboard-svc
-          servicePort: 80
+          service:
+            name: dashboard-svc
+            port:
+              name: http
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
