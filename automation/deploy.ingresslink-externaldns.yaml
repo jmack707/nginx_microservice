@@ -14,9 +14,11 @@
   tasks:
     - name: Ensure Pip is installed
       ansible.builtin.package:
-        name: python3-pip
+        name: 
+          - python3-kubernetes
+          - python3-yaml
         state: present
-      become: true
+      become: true 
 
     - name: Create local .kube directory
       become_user: "{{ansible_user}}"
