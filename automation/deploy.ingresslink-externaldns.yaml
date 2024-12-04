@@ -12,7 +12,7 @@
       secret_state: create
 
   tasks:
-    - name: Ensure Pip is installed
+    - name: Ensure Kubernetes is installed
       ansible.builtin.package:
         name: 
           - python3-kubernetes
@@ -28,15 +28,6 @@
         owner: "{{ansible_user}}"
         group: "{{ansible_user}}"
         mode: '0700'
-    
-    - name: Ensure Kubernetes is installed
-      pip:
-        name: 
-          - Kubernetes>=12.0.0
-          - PyYAML
-          - kubernetes-validate
-        state: present
-      become: true 
 
     - name: Create a nginx-ingress namespace
       kubernetes.core.k8s:
