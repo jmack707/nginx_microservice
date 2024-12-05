@@ -12,23 +12,30 @@
       secret_state: create
 
   tasks:
-    - name: Ensure Kubernetes is installed
+    - name: Ensure Pip is installed
       ansible.builtin.package:
-        name: 
-          - python3-kubernetes
-          - python3-yaml
-          - python3-jsonpatch
+        name: python3-pip
         state: present
-      become: true 
+      become: true
 
     - name: Create local .kube directory
       become_user: "{{ansible_user}}"
       file:
-        path: /home/{{ansible_user}}/.kube
+        path: ~/.kube
         state: directory
         owner: "{{ansible_user}}"
         group: "{{ansible_user}}"
         mode: '0700'
+    
+    - name: Ensure Kubernetes is installed
+      pip:
+        name: 
+          - Kubernetes>=12.0.0
+          - PyYAML
+          - kubernetes-validate
+        state: present
+      become: true 
+
 
     - name: Create a nginx-ingress namespace
       kubernetes.core.k8s:
