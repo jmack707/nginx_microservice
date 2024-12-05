@@ -17,6 +17,7 @@
         name: 
           - python3-kubernetes
           - python3-yaml
+          - python3-jsonpatch
         state: present
       become: true 
 
