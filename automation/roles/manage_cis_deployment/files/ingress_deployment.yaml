@@ -18,7 +18,7 @@ spec:
       # permissions
       containers:
         - name: k8s-bigip-ctlr
-          image: "f5networks/k8s-bigip-ctlr:2.4.1"
+          image: "f5networks/latest"
           env:
             - name: BIGIP_USERNAME
               valueFrom:
@@ -48,7 +48,9 @@ spec:
               "--gtm-bigip-password=$(BIGIP_PASSWORD)",
               "--gtm-bigip-url={{bigip_dns_mgt}}",
               "--pool-member-type=cluster",
-              "--flannel-name={{bigip_tunnel_name}}",
+              "--static-routing-mode=true",
+              "--orchestration-cni=flannel",
+              #"--flannel-name={{bigip_tunnel_name}}",
               "--log-level=DEBUG",
               "--insecure=true",
               "--custom-resource-mode=true",
