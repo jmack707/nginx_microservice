@@ -21,7 +21,7 @@
     - name: Ensure Kubernetes is installed
       pip:
         name: 
-          - Kubernetes>=12.0.0
+          - Kubernetes=24.2.0
           - PyYAML>=3.11
           - kubernetes-validate
           - jsonpatch
