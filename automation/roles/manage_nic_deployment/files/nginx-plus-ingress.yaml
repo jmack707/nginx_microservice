@@ -45,6 +45,8 @@ spec:
           containerPort: 8081
         - name: prometheus
           containerPort: 9113
+        - name: dashboard
+          containerPort: 9000              
         readinessProbe:
           httpGet:
             path: /nginx-ready
