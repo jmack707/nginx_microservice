@@ -4,6 +4,12 @@
     state: present
   become: true
 
+- name: Upgrade pip3
+  ansible.builtin.pip:
+    name: pip
+    state: latest
+    executable: pip3
+
 - name: Ensure Kubernetes is installed
   pip:
     name: 

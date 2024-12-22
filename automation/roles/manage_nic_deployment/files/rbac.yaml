@@ -4,10 +4,24 @@ metadata:
   name: nginx-ingress
 rules:
 - apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - "apps"
+  resources:
+  - replicasets
+  - daemonsets
+  verbs:
+  - get
+- apiGroups:
   - ""
   resources:
   - services
-  - endpoints
   verbs:
   - get
   - list
@@ -35,8 +49,24 @@ rules:
   resources:
   - pods
   verbs:
+  - get
   - list
   - watch
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - list
 - apiGroups:
   - ""
   resources:
@@ -45,6 +75,16 @@ rules:
   - create
   - patch
   - list
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - create
 - apiGroups:
   - networking.k8s.io
   resources:
@@ -77,6 +117,8 @@ rules:
   - virtualservers/status
   - virtualserverroutes/status
   - policies/status
+  - transportservers/status
+  - dnsendpoints/status
   verbs:
   - update
 - apiGroups:
@@ -85,6 +127,7 @@ rules:
   - ingressclasses
   verbs:
   - get
+  - list
 - apiGroups:
     - cis.f5.com
   resources:
@@ -93,6 +136,34 @@ rules:
     - list
     - watch
     - get
+- apiGroups:
+    - cert-manager.io
+  resources:
+    - certificates
+  verbs:
+    - list
+    - watch
+    - get
+    - update
+    - create
+    - delete
+- apiGroups:
+    - externaldns.nginx.org
+  resources:
+    - dnsendpoints
+  verbs:
+    - list
+    - watch
+    - get
+    - update
+    - create
+    - delete
+- apiGroups:
+  - externaldns.nginx.org
+  resources:
+  - dnsendpoints/status
+  verbs:
+  - update
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1

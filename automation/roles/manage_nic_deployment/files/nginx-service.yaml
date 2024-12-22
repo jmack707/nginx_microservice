@@ -4,7 +4,7 @@ metadata:
   name: nginx-ingress-ingresslink
   namespace: nginx-ingress
   labels:
-    app: nginx-ingress
+    app: ingresslink
 spec:
   ports:
     - port: 80
@@ -17,4 +17,3 @@ spec:
       name: https
   selector:
     app: nginx-ingress
-  type: ClusterIP
