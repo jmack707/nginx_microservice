@@ -11,7 +11,7 @@
         namespace: kube-system
       stringData:
         username: admin
-        password: { { bigip_passwd } }
+        password: '{{ bigip_passwd }}'
       type: Opaque"
   become: true
 
