@@ -13,7 +13,6 @@
         username: admin
         password: '{{ bigip_passwd }}'
       type: Opaque"
-  become: true
 
 - name: Apply Service Account, Cluster Role and Cluster Role Binding
   kubernetes.core.k8s:
