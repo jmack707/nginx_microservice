@@ -10,4 +10,4 @@ spec:
     - /Common/Shared/Proxy_Protocol_iRule
   selector:
     matchLabels:
-      app: nginx-ingress
+      app: ingresslink
