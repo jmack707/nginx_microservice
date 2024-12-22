@@ -31,6 +31,6 @@
 - name: Apply BIGIP CTRL Manifest
   kubernetes.core.k8s:
     state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/{{deployment_type}}_deployment.yaml') | from_yaml_all }}"
+    definition: "{{ lookup('template', 'templates/ingress_deployment.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes
