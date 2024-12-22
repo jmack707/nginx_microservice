@@ -41,7 +41,7 @@ spec:
             # https://clouddocs.f5.com/containers/latest/
               "--bigip-username=$(BIGIP_USERNAME)",
               "--bigip-password=$(BIGIP_PASSWORD)",
-              "--bigip-url=10.1.1.4",
+              "--bigip-url={{ bigip_mgt }}",
               "--bigip-partition=k8s",
               "--namespace=nginx-ingress",
               "--pool-member-type=cluster",
