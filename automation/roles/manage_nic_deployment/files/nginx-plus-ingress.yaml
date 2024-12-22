@@ -86,6 +86,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         args:
+          - -nginx-plus
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -report-ingress-status
           #- -external-service=nginx-ingress
