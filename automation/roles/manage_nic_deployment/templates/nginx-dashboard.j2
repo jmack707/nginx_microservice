@@ -21,7 +21,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
-  # ingressClassName: nginx # use only with k8s version >= 1.18.0
+  ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
   - hosts:
     - "nginx.{{local_domain}}"
@@ -57,4 +57,4 @@ spec:
     - /Common/Shared/Proxy_Protocol_iRule
   selector:
     matchLabels:
-      app: nginx-ingress          
+      app: ingresslink         

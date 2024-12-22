@@ -32,7 +32,7 @@
     - appprotectdos.f5.com_dosprotectedresources
     - nginx-config
     - ingress-class
-    - nginx-ingress
+    - nginx-plus-ingress
     - nginx-service
 
 - name: NGINX Secrets

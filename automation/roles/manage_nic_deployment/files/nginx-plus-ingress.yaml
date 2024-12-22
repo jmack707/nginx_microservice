@@ -33,7 +33,7 @@ spec:
 #      - name: nginx-log
 #        emptyDir: {}
       containers:
-      - image: nginx-plus-ingress:3.7.2
+      - image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:3.7.2
         imagePullPolicy: IfNotPresent
         name: nginx-plus-ingress
         ports:
@@ -91,12 +91,13 @@ spec:
           - -nginx-plus
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -mgmt-configmap=$(POD_NAMESPACE)/nginx-config-mgmt
+          - -ingresslink=nginx-ingress
           - -report-ingress-status
-          - -external-service=nginx-ingress
+          #- -external-service=nginx-ingress
          #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
-         #- -enable-cert-manager
+          - -enable-cert-manager
          #- -enable-external-dns
-         #- -enable-app-protect
+          - -enable-app-protect
          #- -enable-app-protect-dos
          #- -log-level=debug # Enables extensive logging. Useful for troubleshooting. Options include: trace, debug, info, warning, error, fatal
          #- -log-format=glog # Sets the log format. Options include: glog, json, text
@@ -119,3 +120,5 @@ spec:
 #        volumeMounts:
 #        - mountPath: /mnt/etc
 #          name: nginx-etc
+      imagePullSecrets:
+        - name: regcred
