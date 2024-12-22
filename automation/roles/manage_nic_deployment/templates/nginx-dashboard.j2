@@ -20,6 +20,7 @@ metadata:
   # use annotations with k8s version < 1.18.0
   annotations:
     #kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
