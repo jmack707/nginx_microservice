@@ -9,7 +9,7 @@
       metadata:
         name: bigip-login
         namespace: kube-system
-      stringData:
+      data:
         username: admin
         password: '{{ bigip_passwd }}'
       type: Opaque"
