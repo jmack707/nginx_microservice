@@ -1,9 +1,0 @@
----
-# tasks file for roles/install_syslog
-- name: Manage Syslog Deployment
-  kubernetes.core.k8s:
-    namespace: default
-    state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
-  with_items: 
-    - syslog

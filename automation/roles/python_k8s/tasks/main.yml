@@ -1,0 +1,15 @@
+- name: Ensure Pip is installed
+  ansible.builtin.package:
+    name: python3-pip
+    state: present
+  become: true
+
+- name: Ensure Kubernetes is installed
+  pip:
+    name: 
+      - Kubernetes>=24.2.0
+      - PyYAML>=3.11
+      - kubernetes-validate
+      - jsonpatch
+    state: present
+  become: true

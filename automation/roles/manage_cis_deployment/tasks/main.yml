@@ -1,29 +1,37 @@
 ---
 # tasks file for roles/install_cis
-- name: Modify Service Account, Cluster Role and Cluster Role Binding
+- name: BIG-IP credentials as Kubernetes Secrets
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: bigip-login
+        namespace: kube-system
+      stringData:
+        username: admin
+        password: { { bigip_passwd } }
+      type: Opaque"
+  become: true
+
+- name: Apply Service Account, Cluster Role and Cluster Role Binding
+  kubernetes.core.k8s:
+    state: '{{ package_state }}'
     definition: "{{ lookup('file', 'files/bigip-ctlr-clusterrole.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes
 
-- name: Modify CRD Schea
+- name: Apply CRD Schea
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
+    state: '{{ package_state }}'
     definition: "{{ lookup('file', 'files/customresourcedefinitions.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes
 
-- name: Modify BIGIP CTRL Manifest
+- name: Apply BIGIP CTRL Manifest
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/{{deployment_type}}_deployment.yaml') | from_yaml_all }}"
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'templates/{{deployment_type}}_deployment.yaml') | from_yaml_all }}"
     validate:
       fail_on_error: yes
-
-- name: Modify Kubernetes Tunnel configuration
-  kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/f5-bigip-node.yaml') | from_yaml_all }}"
-    validate:
-      fail_on_error: yes     
