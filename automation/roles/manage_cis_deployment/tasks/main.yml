@@ -10,8 +10,8 @@
         name: bigip-login
         namespace: kube-system
       data:
-        username: admin
-        password: '{{ bigip_passwd }}'
+       password: YmlnaXAxMjM=
+       username: YWRtaW4=
       type: Opaque"
 
 - name: Apply Service Account, Cluster Role and Cluster Role Binding
