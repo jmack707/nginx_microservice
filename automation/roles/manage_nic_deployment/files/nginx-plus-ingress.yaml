@@ -92,7 +92,7 @@ spec:
           #- -external-service=nginx-ingress
           - -ingresslink=nginx-ingress
           - -nginx-status-allow-cidrs=0.0.0.0/0
-          - -nginx-status-port=9000
+          #- -nginx-status-port=9000
           - -enable-snippets=true
          #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
          #- -enable-cert-manager
