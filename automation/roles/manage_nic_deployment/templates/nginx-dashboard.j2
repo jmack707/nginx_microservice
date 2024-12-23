@@ -8,7 +8,7 @@ spec:
   - port: 80 
     targetPort: 9000
     protocol: TCP
-    name: dashboard
+    name: http
   selector:
     app: nginx-ingress
 ---
@@ -31,19 +31,19 @@ spec:
     http:
       paths:
       - path: /dashboard.html
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: dashboard-svc
             port:
-              name: http
+              number: 80
       - path: /api
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: dashboard-svc
             port:
-              name: http
+              number: 80
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
