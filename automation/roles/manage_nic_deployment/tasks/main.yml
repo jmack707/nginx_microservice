@@ -17,21 +17,18 @@
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
+
+    - rbac
+    - default-server-secret.yaml
+    - nginx-config
+    - ingress-class
+
     - k8s.nginx.org_virtualservers
     - k8s.nginx.org_virtualserverroutes
     - k8s.nginx.org_transportservers
     - k8s.nginx.org_policies
-    - rbac
-    - ap-rbac
-    - apdos-rbac
-    - appprotect.f5.com_aplogconfs
-    - appprotect.f5.com_appolicies
-    - appprotect.f5.com_apusersigs
-    - appprotectdos.f5.com_apdoslogconfs
-    - appprotectdos.f5.com_apdospolicy
-    - appprotectdos.f5.com_dosprotectedresources
-    - nginx-config
-    - ingress-class
+    - k8s.nginx.org_globalconfigurations
+
     - nginx-plus-ingress
     - nginx-service
 
