@@ -16,12 +16,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dashboard-ingress
-  # use annotations with k8s version < 1.18.0
   namespace: nginx-ingress
+  # use annotations with k8s version < 1.18.0
   annotations:
-    #kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx # use only with k8s version >= 1.18.0
+  # ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
   - hosts:
     - "nginx.{{local_domain}}"
@@ -31,19 +31,19 @@ spec:
     http:
       paths:
       - path: /dashboard.html
-        pathType: ImplementationSpecific
+        pathType: Prefix
         backend:
           service:
             name: dashboard-svc
             port:
-              number: 80
+              name: http
       - path: /api
-        pathType: ImplementationSpecific
+        pathType: Prefix
         backend:
           service:
             name: dashboard-svc
             port:
-              number: 80
+              name: http
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
