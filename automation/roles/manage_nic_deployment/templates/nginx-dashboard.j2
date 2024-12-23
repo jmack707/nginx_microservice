@@ -19,9 +19,9 @@ metadata:
   namespace: nginx-ingress
   # use annotations with k8s version < 1.18.0
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+  #  kubernetes.io/ingress.class: "nginx"
 spec:
-  # ingressClassName: nginx # use only with k8s version >= 1.18.0
+  ingressClassName: nginx # use only with k8s version >= 1.18.0
   tls:
   - hosts:
     - "nginx.{{local_domain}}"
