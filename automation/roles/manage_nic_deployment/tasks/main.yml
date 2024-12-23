@@ -19,7 +19,7 @@
   with_items: 
 
     - rbac
-    - default-server-secret.yaml
+    - default-server-secret
     - nginx-config
     - ingress-class
 
