@@ -5,45 +5,31 @@ metadata:
   namespace: nginx-ingress
 spec:
   ports:
-  - port: 80 
-    targetPort: 9000
+  - port: 80
+    targetPort: 8080
     protocol: TCP
-    name: dashboard
+    name: http
   selector:
     app: nginx-ingress
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
 metadata:
-  name: dashboard-ingress
+  name: dashboard-VirtualServer
   namespace: nginx-ingress
-  # use annotations with k8s version < 1.18.0
-  annotations:
-    #kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx # use only with k8s version >= 1.18.0
+  host: "nginx.{{local_domain}}"
+  upstreams:
+  - name: dashboard
+    service: dashboard-svc
+    port: 80
+  routes:
+  - path: /dashboard.html
+    action:
+      pass: dashboard
   tls:
-  - hosts:
-    - "nginx.{{local_domain}}"
-    secretName: default-server-secret
-  rules:
-  - host: "nginx.{{local_domain}}"
-    http:
-      paths:
-      - path: /dashboard.html
-        pathType: Prefix
-        backend:
-          service:
-            name: dashboard-svc
-            port:
-              name: http
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: dashboard-svc
-            port:
-              name: http
+    secret: default-server-secret
+
 ---
 apiVersion: "cis.f5.com/v1"
 kind: IngressLink
