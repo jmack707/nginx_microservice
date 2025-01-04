@@ -33,9 +33,9 @@ spec:
 #      - name: nginx-log
 #        emptyDir: {}
       containers:
-      - image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:3.7.2
+      - image: nginx-plus-ingress:3.7.2
         imagePullPolicy: IfNotPresent
-        name: nginx-ingress
+        name: nginx-plus-ingress
         ports:
         - name: http
           containerPort: 80
@@ -45,6 +45,8 @@ spec:
           containerPort: 8081
         - name: prometheus
           containerPort: 9113
+        - name: service-insight
+          containerPort: 9114
         readinessProbe:
           httpGet:
             path: /nginx-ready
@@ -89,16 +91,15 @@ spec:
           - -nginx-plus
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -report-ingress-status
-          #- -external-service=nginx-ingress
-          - -ingresslink=nginx-ingress
-          - -nginx-status-allow-cidrs=0.0.0.0/0
-          #- -nginx-status-port=9000
-          - -enable-snippets=true
+          - -external-service=nginx-ingress
          #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
          #- -enable-cert-manager
          #- -enable-external-dns
+         #- -enable-app-protect
+         #- -enable-app-protect-dos
          #- -v=3 # Enables extensive logging. Useful for troubleshooting.
          #- -enable-prometheus-metrics
+         #- -enable-service-insight
          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
 #      initContainers:
 #      - image: nginx/nginx-ingress:3.7.2
@@ -116,5 +117,3 @@ spec:
 #        volumeMounts:
 #        - mountPath: /mnt/etc
 #          name: nginx-etc
-      imagePullSecrets:
-        - name: regcred
