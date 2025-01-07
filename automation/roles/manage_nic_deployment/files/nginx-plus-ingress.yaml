@@ -102,19 +102,21 @@ spec:
             #- -enable-prometheus-metrics
             #- -enable-service-insight
             #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
-#      initContainers:
-#      - image: nginx/nginx-ingress:3.7.2
-#        imagePullPolicy: IfNotPresent
-#        name: init-nginx-ingress
-#        command: ['cp', '-vdR', '/etc/nginx/.', '/mnt/etc']
-#        securityContext:
-#          allowPrivilegeEscalation: false
-#          readOnlyRootFilesystem: true
-#          runAsUser: 101 #nginx
-#          runAsNonRoot: true
-#          capabilities:
-#            drop:
-#            - ALL
-#        volumeMounts:
-#        - mountPath: /mnt/etc
-#          name: nginx-etc
+      #      initContainers:
+      #      - image: nginx/nginx-ingress:3.7.2
+      #        imagePullPolicy: IfNotPresent
+      #        name: init-nginx-ingress
+      #        command: ['cp', '-vdR', '/etc/nginx/.', '/mnt/etc']
+      #        securityContext:
+      #          allowPrivilegeEscalation: false
+      #          readOnlyRootFilesystem: true
+      #          runAsUser: 101 #nginx
+      #          runAsNonRoot: true
+      #          capabilities:
+      #            drop:
+      #            - ALL
+      #        volumeMounts:
+      #        - mountPath: /mnt/etc
+      #          name: nginx-etc
+      imagePullSecrets:
+        - name: regcred
