@@ -41,7 +41,7 @@
             "DC1": {
                 "class": "GSLB_Data_Center"
             },
-            "k8s": {
+            "bigip1": {
                 "class": "GSLB_Server",
                 "dataCenter": {
                     "use": "DC1"
