@@ -1,0 +1,28 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: cafe-virtual-server
+spec:
+  host: 'cafe.{{local_domain}}'
+  tls:
+    secret: cafe-secret
+    redirect:
+      enable: true
+  upstreams:
+    - name: coffee
+      service: coffee-svc
+      port: 80
+    - name: tea
+      service: tea-svc
+      port: 80
+  routes:
+    - path: /coffee
+      policies:
+        - name: oidc-policy
+      action:
+        pass: coffee-svc
+    - path: /tea
+      policies:
+        - name: oidc-policy
+      action:
+        pass: tea-svc

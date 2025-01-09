@@ -3,26 +3,26 @@
 - name: Manage Cafe APP Deployment
   kubernetes.core.k8s:
     namespace: default
-    state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
-  with_items: 
+    state: '{{ package_state }}'
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"
+  with_items:
     - cafe
 #    - ap-dataguard-alarm-policy
 #    - ap-logconf
-#    - ap-apple-uds    
+#    - ap-apple-uds
 
 - name: APP Secrets
   kubernetes.core.k8s:
     namespace: default
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}" 
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'files/cafe-secret.j2') | from_yaml_all }}"
 
 - name: Manage Ingresslink and ExternalDNS CRD
   kubernetes.core.k8s:
     namespace: default
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"  
-  with_items: 
-    - cafe-ingress
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"
+  with_items:
+    - cafe-virtual-server
     - vs-ingresslink
     - edns-cafe
