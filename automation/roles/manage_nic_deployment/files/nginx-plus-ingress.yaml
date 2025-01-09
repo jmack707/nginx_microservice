@@ -92,6 +92,7 @@ spec:
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -report-ingress-status
           - -external-service=nginx-ingress
+          - -enable-oidc
          #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
          #- -enable-cert-manager
          #- -enable-external-dns
