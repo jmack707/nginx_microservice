@@ -20,9 +20,9 @@ spec:
 #      policies:
 #        - name: oidc-policy
       action:
-        pass: coffee-svc
+        pass: coffee
     - path: /tea
 #      policies:
 #        - name: oidc-policy
       action:
-        pass: tea-svc
+        pass: tea
