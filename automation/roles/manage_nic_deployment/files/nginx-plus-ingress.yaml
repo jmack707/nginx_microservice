@@ -13,25 +13,25 @@ spec:
       labels:
         app: nginx-ingress
         app.kubernetes.io/name: nginx-ingress
-     #annotations:
-       #prometheus.io/scrape: "true"
-       #prometheus.io/port: "9113"
-       #prometheus.io/scheme: http
+      #annotations:
+      #prometheus.io/scrape: "true"
+      #prometheus.io/port: "9113"
+      #prometheus.io/scheme: http
     spec:
       serviceAccountName: nginx-ingress
       automountServiceAccountToken: true
       securityContext:
         seccompProfile:
           type: RuntimeDefault
-#      volumes:
-#      - name: nginx-etc
-#        emptyDir: {}
-#      - name: nginx-cache
-#        emptyDir: {}
-#      - name: nginx-lib
-#        emptyDir: {}
-#      - name: nginx-log
-#        emptyDir: {}
+      #      volumes:
+      #      - name: nginx-etc
+      #        emptyDir: {}
+      #      - name: nginx-cache
+      #        emptyDir: {}
+      #      - name: nginx-lib
+      #        emptyDir: {}
+      #      - name: nginx-log
+      #        emptyDir: {}
       containers:
       - image: nginx-plus-ingress:3.7.2
         imagePullPolicy: IfNotPresent
@@ -92,7 +92,6 @@ spec:
           - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
           - -report-ingress-status
           - -external-service=nginx-ingress
-          - -enable-oidc
          #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
          #- -enable-cert-manager
          #- -enable-external-dns
