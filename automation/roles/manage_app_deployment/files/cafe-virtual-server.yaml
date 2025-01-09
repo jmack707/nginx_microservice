@@ -20,9 +20,11 @@ spec:
       policies:
         - name: oidc-policy
       action:
-        pass: coffee
+      proxy:
+        upstream: coffee
+        rewritePath: /
     - path: /tea
-#      policies:
-#        - name: oidc-policy
+      #      policies:
+      #        - name: oidc-policy
       action:
         pass: tea
