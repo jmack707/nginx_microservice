@@ -17,12 +17,8 @@ spec:
       port: 80
   routes:
     - path: /coffee
-      policies:
-        - name: oidc-policy
       action:
         pass: coffee
     - path: /tea
-#      policies:
-#        - name: oidc-policy
       action:
         pass: tea
