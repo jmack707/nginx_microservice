@@ -5,7 +5,9 @@ metadata:
 spec:
   host: 'cafe.{{local_domain}}'
   tls:
-    secret: cafe-secret
+    secret: cafe-secret   
+    cert-manager:
+      cluster-issuer: lab.test.local
     redirect:
       enable: true
   upstreams:
