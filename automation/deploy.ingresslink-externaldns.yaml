@@ -16,6 +16,10 @@
       import_role:
         name: python_k8s
 
+    - name: Install Cert Manager
+      import_role:
+        name: manage_cert_manager
+
     - name: CIS
       import_role:
         name: manage_cis_deployment
