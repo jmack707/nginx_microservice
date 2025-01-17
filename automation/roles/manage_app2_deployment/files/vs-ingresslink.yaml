@@ -1,0 +1,13 @@
+apiVersion: "cis.f5.com/v1"
+kind: IngressLink
+metadata:
+  name: vs-ingresslink
+  namespace: nginx-ingress
+spec:
+  virtualServerAddress: "{{app_address}}"
+  host: "webapp.{{local_domain}}"
+  iRules:
+    - /Common/Shared/Proxy_Protocol_iRule
+  selector:
+    matchLabels:
+      app: ingresslink

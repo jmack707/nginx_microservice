@@ -96,7 +96,7 @@ spec:
             - -enable-snippets=true
             - -enable-oidc
             #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
-            #- -enable-cert-manager
+            - -enable-cert-manager
             #- -enable-external-dns
             #- -enable-app-protect
             #- -enable-app-protect-dos

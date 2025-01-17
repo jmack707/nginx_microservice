@@ -1,0 +1,28 @@
+---
+# tasks file for roles/deploy_app
+- name: Manage app APP Deployment
+  kubernetes.core.k8s:
+    namespace: default
+    state: '{{ package_state }}'
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"
+  with_items:
+    - app
+#    - ap-dataguard-alarm-policy
+#    - ap-logconf
+#    - ap-apple-uds
+
+#- name: APP Secrets
+#  kubernetes.core.k8s:
+#    namespace: default
+#    state: '{{ package_state }}'
+#    definition: "{{ lookup('template', 'files/app-secret.j2') | from_yaml_all }}"
+
+- name: Manage Ingresslink and ExternalDNS CRD
+  kubernetes.core.k8s:
+    namespace: default
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"
+  with_items:
+    - virtual-server
+    - vs-ingresslink
+    - edns

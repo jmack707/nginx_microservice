@@ -1,0 +1,26 @@
+apiVersion: "cis.f5.com/v1"
+kind: ExternalDNS
+metadata:
+  name: edns-webapp
+  namespace: nginx-ingress
+  labels:
+    f5cr: "true"
+spec:
+  domainName: "webapp.{{local_domain}}"
+  dnsRecordType: A
+  loadBalanceMethod: round-robin
+  pools:
+  - dnsRecordType: A
+    loadBalanceMethod: round-robin
+    dataServerName: /Common/{{bigip_name}}
+    monitors:
+    - interval: 10
+      recv: ""
+      send: "GET /tea HTTP/1.1\r\nHost: webapp.{{local_domain}}\r\n"
+      timeout: 31
+      type: https
+    - interval: 10
+      recv: ""
+      send: "GET /coffee HTTP/1.1\r\nHost: webapp.{{local_domain}}\\r\n"
+      timeout: 31
+      type: https

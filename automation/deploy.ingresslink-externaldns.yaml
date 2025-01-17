@@ -8,18 +8,22 @@
     - ../vars/k8s_secret.yaml
 
   vars:
-      package_state: present
-      secret_state: create
+    package_state: present
+    secret_state: create
 
   tasks:
-    - name: Install Python Kubernetes 
+    - name: Install Python Kubernetes
       import_role:
         name: python_k8s
 
-    - name: CIS  
+    - name: Install Cert-Manager
+      import_role:
+        name: manage_cert_manager
+
+    - name: CIS
       import_role:
         name: manage_cis_deployment
 
-    - name: NIC  
+    - name: NIC
       import_role:
         name: manage_nic_deployment
