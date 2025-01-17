@@ -6,7 +6,6 @@ metadata:
 spec:
   virtualServerAddress: "{{app_address}}"
   host: "cafe.{{local_domain}}"
-  policyName: ldap.psp
   iRules:
     - /Common/Shared/Proxy_Protocol_iRule
   selector:

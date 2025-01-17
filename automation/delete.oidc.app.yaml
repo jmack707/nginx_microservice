@@ -1,6 +1,6 @@
 ---
-# Cafe App
-- name: Remoe Cafe App
+# Webb App
+- name: Remoe Webb App
   hosts: master
   gather_facts: false
 
@@ -12,6 +12,6 @@
     secret_state: delete
 
   tasks:
-    - name: Cafe APP
+    - name: Webb APP
       import_role:
-        name: manage_app_deployment
+        name: manage_app2_deployment
