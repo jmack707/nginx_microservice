@@ -5,7 +5,7 @@ metadata:
 spec:
   host: 'webapp.{{local_domain}}'
   tls:
-    secret: webapp-secret
+    secret: webapp_tls
     cert-manager:
       cluster-issuer: lab.test.local
     redirect:
@@ -17,6 +17,6 @@ spec:
   routes:
     - path: /
       policies:
-      - name: oidc-policy
+        - name: oidc-policy
       action:
         pass: webapp
