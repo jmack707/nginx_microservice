@@ -5,7 +5,7 @@ metadata:
 spec:
   host: 'webapp.{{local_domain}}'
   tls:
-    secret: webapp_tls
+    secret: webapp-tls
     cert-manager:
       cluster-issuer: lab.test.local
     redirect:
