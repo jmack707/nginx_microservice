@@ -16,7 +16,7 @@ spec:
       port: 80
   routes:
     - path: /
-      policies:
-        - name: oidc-policy
+      #policies:
+      #  - name: oidc-policy
       action:
         pass: webapp
