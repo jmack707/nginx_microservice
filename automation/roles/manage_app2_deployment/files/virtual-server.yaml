@@ -4,6 +4,8 @@ metadata:
   name: webapp
 spec:
   host: 'webapp.{{local_domain}}'
+  policies:
+    - name: oidc-policy  
   tls:
     secret: webapp-tls
     cert-manager:
@@ -16,7 +18,5 @@ spec:
       port: 80
   routes:
     - path: /
-      policies:
-        - name: oidc-policy
       action:
         pass: webapp
