@@ -5,7 +5,7 @@ metadata:
 spec:
   oidc:
     clientID: d091550e74667066edc6ae6fd9350abc4a0e77658a441c65
-    clientSecret: ZDY4NTc5ZGJiN2RlM2IyYThmYzg2Y2Q4ZmFkZTM4ZGJiMjc2Zjg1NjBjMjcwYWJjNGEwZTc3NjU4YTQ0MWM2NQ==
+    clientSecret: bigip123
     authEndpoint: https://idam.test.local/f5-oauth2/v1/authorize
     tokenEndpoint: https://idam.test.local/f5-oauth2/v1/token
     jwksURI: https://idam.test.local/f5-oauth2/v1/jwks
