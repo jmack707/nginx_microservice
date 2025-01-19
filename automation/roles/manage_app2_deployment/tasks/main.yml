@@ -34,6 +34,6 @@
     state: '{{ package_state }}'
     definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"
   with_items:
-    #- virtual-server
+    - virtual-server
     - vs-ingresslink
     - edns
