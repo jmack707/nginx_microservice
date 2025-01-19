@@ -5,7 +5,7 @@ metadata:
 spec:
   oidc:
     clientID: d091550e74667066edc6ae6fd9350abc4a0e77658a441c65
-    clientSecret: YmlnaXAxMjM=
+    clientSecret: 38157f52b1ec3c53a37025c79759c6571ca7507721d6525400705eff76b08967
     authEndpoint: https://idam.test.local/f5-oauth2/v1/authorize
     tokenEndpoint: https://idam.test.local/f5-oauth2/v1/token
     jwksURI: https://idam.test.local/f5-oauth2/v1/jwks
