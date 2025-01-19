@@ -6,8 +6,8 @@ spec:
   host: 'webapp.{{local_domain}}'
   tls:
     secret: webapp-tls
-    #cert-manager:
-    #  cluster-issuer: lab.test.local
+    cert-manager:
+      cluster-issuer: lab.test.local
     redirect:
       enable: true
   upstreams:
