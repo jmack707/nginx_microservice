@@ -32,6 +32,10 @@ spec:
       #        emptyDir: {}
       #      - name: nginx-log
       #        emptyDir: {}
+      volumes:
+      - name: oidc-volume
+        configMap:
+          name: oidc-config-map      
       containers:
         - image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:3.7.2
           imagePullPolicy: IfNotPresent
@@ -68,8 +72,13 @@ spec:
               drop:
                 - ALL
               add:
-                - NET_BIND_SERVICE
-          #        volumeMounts:
+                  - NET_BIND_SERVICE
+          volumeMounts:
+          - name: oidc-volume
+            mountPath: /etc/nginx/oidc/oidc.conf
+            subPath: oidc.conf # Must match the name in the data filed
+            readOnly: true                
+            #        volumeMounts:
           #        - mountPath: /etc/nginx
           #          name: nginx-etc
           #        - mountPath: /var/cache/nginx
