@@ -14,6 +14,6 @@
 
   tasks:
 
-    - name: Cafe APP
+    - name: WEB APP
       import_role:
         name: manage_app2_deployment

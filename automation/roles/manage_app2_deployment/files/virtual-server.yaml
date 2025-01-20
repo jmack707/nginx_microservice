@@ -12,7 +12,6 @@ spec:
       cluster-issuer: lab.test.local
     redirect:
       enable: true
-      code: 301
   upstreams:
     - name: webapp
       service: webapp-svc
