@@ -19,8 +19,4 @@ spec:
       send: "GET / HTTP/1.1\r\nHost: webapp.{{local_domain}}\r\n"
       timeout: 31
       type: https
-    - interval: 10
-      recv: ""
-      send: "GET / HTTP/1.1\r\nHost: webapp.{{local_domain}}\r\n"
-      timeout: 31
-      type: https
+
