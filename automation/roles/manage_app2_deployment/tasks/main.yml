@@ -23,10 +23,10 @@
     state: '{{ package_state }}'
     definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"
   with_items:
-    - client-secret
-    - nginx-ingress-headless
-    - nginx-config
-    - oidc
+    #- client-secret
+    #- nginx-ingress-headless
+    #- nginx-config
+    #- oidc
 
 - name: Manage Ingresslink and virtual-server
   kubernetes.core.k8s:
