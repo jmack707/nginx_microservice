@@ -25,7 +25,7 @@
   with_items:
     - client-secret
     - nginx-ingress-headless
-    #- nginx-config
+    - nginx-config
     - oidc
 
 - name: Manage Ingresslink and virtual-server
