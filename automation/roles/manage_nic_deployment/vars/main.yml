@@ -2,6 +2,7 @@
 # vars file for roles/install_nic
 local_domain: local
 nginx_dashboard_address: 10.1.10.110
+admin_account: ubuntu
 tls_cert: |
   -----BEGIN CERTIFICATE-----
   MIIEQjCCAqqgAwIBAgIBDTANBgkqhkiG9w0BAQsFADA1MRMwEQYDVQQKDApURVNU
