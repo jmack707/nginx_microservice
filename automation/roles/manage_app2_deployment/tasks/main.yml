@@ -17,7 +17,7 @@
 #    state: '{{ package_state }}'
 #    definition: "{{ lookup('template', 'files/app-secret.j2') | from_yaml_all }}"
 
-- name: Manage Ingresslink and ExternalDNS CRD
+- name: Manage NGINX and OIDC
   kubernetes.core.k8s:
     namespace: default
     state: '{{ package_state }}'
@@ -28,7 +28,7 @@
     - nginx-config
     - oidc
 
-- name: Manage Ingresslink and ExternalDNS CRD
+- name: Manage Ingresslink and virtual-server
   kubernetes.core.k8s:
     namespace: default
     state: '{{ package_state }}'
