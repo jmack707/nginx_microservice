@@ -4,8 +4,8 @@ metadata:
   name: webapp
 spec:
   host: 'webapp.{{local_domain}}'
-  policies:
-    - name: oidc-policy  
+  #policies:
+  #  - name: oidc-policy  
   tls:
     secret: webapp-tls
     cert-manager:
