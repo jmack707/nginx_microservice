@@ -10,6 +10,7 @@
     - ap-dataguard-alarm-policy
     - ap-logconf
     - ap-apple-uds
+    - waf
 
 #- name: APP Secrets
 #  kubernetes.core.k8s:
