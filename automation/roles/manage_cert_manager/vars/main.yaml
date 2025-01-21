@@ -1,6 +1,6 @@
 admin_account: ubuntu
 
-tls_crt: |
+tls_cert: |
   -----BEGIN CERTIFICATE-----
   MIIEQjCCAqqgAwIBAgIBDTANBgkqhkiG9w0BAQsFADA1MRMwEQYDVQQKDApURVNU
   LkxPQ0FMMR4wHAYDVQQDDBVDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjUwMTIw
