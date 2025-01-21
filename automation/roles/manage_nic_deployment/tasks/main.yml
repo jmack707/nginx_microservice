@@ -20,8 +20,8 @@
 
     - rbac
     #- default-server-secret
-    - ap-rbac
-    - apdos-rbac
+    #- ap-rbac
+    #- apdos-rbac
     - nginx-config
     - ingress-class
 
