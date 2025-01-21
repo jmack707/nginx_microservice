@@ -21,7 +21,7 @@
     - rbac
     - default-server-secret
     - ap-rbac
-    - apdoc-rbac
+    - apdos-rbac
     - nginx-config
     - ingress-class
 
