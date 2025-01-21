@@ -31,9 +31,9 @@
     - k8s.nginx.org_policies
     - k8s.nginx.org_globalconfigurations
 
-    - appprotect.f5.com_aplogconfs
-    - appprotect.f5.com_appolicies
-    - appprotect.f5.com_apusersigs
+#    - appprotect.f5.com_aplogconfs
+#    - appprotect.f5.com_appolicies
+#    - appprotect.f5.com_apusersigs
 
     - nginx-plus-ingress
     - nginx-service
