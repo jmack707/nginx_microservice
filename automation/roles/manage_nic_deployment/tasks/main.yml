@@ -23,6 +23,8 @@
     - nginx-config
     - ingress-class
 
+    - ap-rbac
+
     - k8s.nginx.org_virtualservers
     - k8s.nginx.org_virtualserverroutes
     - k8s.nginx.org_transportservers
