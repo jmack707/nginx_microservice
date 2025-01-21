@@ -8,8 +8,8 @@ spec:
     secret: cafe-secret   
     redirect:
       enable: true
-#    cert-manager:
-#      cluster-issuer: lab.test.local      
+    cert-manager:
+      cluster-issuer: lab.test.local      
   upstreams:
     - name: coffee
       service: coffee-svc
