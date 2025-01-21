@@ -103,7 +103,7 @@ spec:
             - -report-ingress-status
             - -external-service=nginx-ingress
             - -enable-snippets=true
-            - -enable-oidc
+            #- -enable-oidc
             #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
             - -enable-cert-manage
             #- -enable-external-dns
