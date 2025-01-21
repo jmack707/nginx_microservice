@@ -95,9 +95,9 @@ spec:
             - -external-service=nginx-ingress
             - -enable-snippets=true
             #- -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
-            - -enable-cert-manager
+            #- -enable-cert-manager
             #- -enable-external-dns
-            - -enable-app-protect
+            #- -enable-app-protect
             #- -enable-app-protect-dos
             #- -v=3 # Enables extensive logging. Useful for troubleshooting.
             #- -enable-prometheus-metrics
