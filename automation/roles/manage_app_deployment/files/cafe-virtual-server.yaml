@@ -1,0 +1,26 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: cafe-virtual-server
+spec:
+  host: 'cafe.{{local_domain}}'
+  tls:
+    secret: cafe-secret   
+    redirect:
+      enable: true
+    cert-manager:
+      cluster-issuer: lab.test.local      
+  upstreams:
+    - name: coffee
+      service: coffee-svc
+      port: 80
+    - name: tea
+      service: tea-svc
+      port: 80
+  routes:
+    - path: /coffee
+      action:
+        pass: coffee
+    - path: /tea
+      action:
+        pass: tea
