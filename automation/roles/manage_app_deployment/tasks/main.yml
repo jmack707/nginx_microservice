@@ -23,6 +23,6 @@
     state: "{{ package_state }}"
     definition: "{{ lookup('template', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
-    - cafe-virtual-server.yaml
+    - cafe-virtual-server
     - vs-ingresslink
     - edns-cafe
