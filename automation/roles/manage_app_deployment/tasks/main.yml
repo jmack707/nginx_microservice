@@ -7,9 +7,9 @@
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"
   with_items:
     - cafe
-#    - ap-dataguard-alarm-policy
-#    - ap-logconf
-#    - ap-apple-uds
+    - ap-dataguard-alarm-policy
+    - ap-logconf
+    - ap-apple-uds
 
 #- name: APP Secrets
 #  kubernetes.core.k8s:
