@@ -19,7 +19,7 @@
   with_items: 
 
     - rbac
-    - default-server-secret
+    #- default-server-secret
     - ap-rbac
     - apdos-rbac
     - nginx-config
