@@ -2,11 +2,11 @@
 # tasks file for roles/install_nic
 - name: Create Namespace and Service Account
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
+    state: '{{ package_state }}'
     definition: "{{ lookup('file', 'files/ns-and-sa.yaml') | from_yaml_all }}"
 
 - name: NGINX JWT in a Docker Config Secret
-  ansible.builtin.command: 
+  ansible.builtin.command:
     cmd: kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username="{{nginx_jwt}}" --docker-password=none -n nginx-ingress
   ignore_errors: true
   become: true
@@ -14,16 +14,14 @@
 
 - name: Deploy NGINX NIC Deployment
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
-  with_items: 
-
+    state: '{{ package_state }}'
+    definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"
+  with_items:
     - rbac
+    - ap-rbac
     - default-server-secret
     - nginx-config
     - ingress-class
-
-    - ap-rbac
 
     - k8s.nginx.org_virtualservers
     - k8s.nginx.org_virtualserverroutes
@@ -31,15 +29,19 @@
     - k8s.nginx.org_policies
     - k8s.nginx.org_globalconfigurations
 
+    - appprotect.f5.com_aplogconfs
+    - appprotect.f5.com_appolicies
+    - appprotect.f5.com_apusersigs
+
     - nginx-plus-ingress
     - nginx-service
 
 - name: NGINX Secrets
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'templates/nginx-server-secret.j2') | from_yaml_all }}"      
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'templates/nginx-server-secret.j2') | from_yaml_all }}"
 
 - name: Manage Dashboard Deployment
   kubernetes.core.k8s:
-    state: "{{ package_state }}"
+    state: '{{ package_state }}'
     definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | from_yaml_all }}"
