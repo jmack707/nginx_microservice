@@ -4,6 +4,8 @@ metadata:
   name: cafe-virtual-server
 spec:
   host: 'cafe.{{local_domain}}'
+  policies:
+  - name: waf-policy  
   tls:
     secret: cafe-secret   
     redirect:
