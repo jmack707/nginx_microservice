@@ -1,5 +1,3 @@
-Certainly! Here's the updated documentation, excluding references to `ansible-navigator.yml`. The focus is solely on setting up an **Ansible Execution Environment (EE)** using the required files: `execution-environment.yml`, `requirements.yml`, and `requirements.txt`.
-
 ---
 
 # Ansible Execution Environment Documentation
