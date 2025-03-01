@@ -1,12 +1,11 @@
-# Ansible Collection - nginx_microservice.automation
+# Automated Deployment of F5 Container Ingress Services (CIS) and NGINX Ingress Controller
 
-Documentation for the collection.
+This repository provides an automated solution for deploying **F5 CIS** and **NGINX Ingress Controller** in Kubernetes environments using **Ansible Navigator** or **AWX**. By leveraging Ansible as the automation engine, this approach ensures consistent, repeatable, and efficient configurations for managing ingress resources.
 
+## Key Highlights:
+- Automates the deployment and integration of F5 BIG-IP with Kubernetes clusters via F5 CIS.
+- Simplifies the deployment of NGINX Ingress Controller for Kubernetes-native traffic routing.
+- Harnesses the power of **Ansible Navigator** or **AWX** to manage complex deployments through a streamlined process.
 
-
-
-How to create vxlan tunnel
-tmsh create net tunnels vxlan fl-vxlan port 8472 flooding-type none
-tmsh create net tunnels tunnel fl-vxlan key 1 profile fl-vxlan local-address 10.1.20.4
-tmsh create net self 10.244.20.91 address 10.244.20.91/255.255.0.0 allow-service none vlan fl-vxlan
+To get started, customize the provided Ansible playbooks and variables to suit your environment, then execute the deployment using Ansible Navigator or AWX. For detailed steps, refer to the accompanying playbooks and AWX job templates provided within the repository.
 
