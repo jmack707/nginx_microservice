@@ -10,6 +10,7 @@
   vars:
     package_state: absent
     secret_state: delete
+    cafeapp-image: harbor.test.local/library/nginxdemos/nginx-hello
 
   tasks:
     - name: Cafe APP

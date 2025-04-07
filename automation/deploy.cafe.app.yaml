@@ -9,6 +9,7 @@
 
   vars:
     local_domain: 1laptop.local
+    cafeapp-image: harbor.test.local/library/nginxdemos/nginx-hello
     package_state: present
     secret_state: create
 

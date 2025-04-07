@@ -7,6 +7,10 @@
   vars:
     package_state: absent
     secret_state: delete
+    syslog-image: harbor.test.local/library/balabit/syslog-ng
+    nginx-image: harbor.test.local/library/nginx/nginx-ingress
+    cis-image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
+    nginx-image: harbor.test.local/library/nginx/nginx-ingress    
 
   tasks:
     - name: Delete a nginx-ingress namespace
@@ -32,3 +36,7 @@
     - name: NIC  
       import_role:
         name: manage_nic_deployment
+
+    - name: Syslog
+      import_role:
+        name: manage_syslog_deployment

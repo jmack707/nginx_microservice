@@ -1,0 +1,58 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: true
+  vars_files:
+    - my-secret.yaml
+  vars:
+    #dockerhub_username: "your_username"   # Replace with your DockerHub username
+    #dockerhub_password: "your_password"  # Replace with your DockerHub password or access token
+    docker_images:
+      - name: "nginx/nginx-ingress"       # NGINX Ingress Controller official image
+        tag: "latest"                     # Tag/version
+      - name: "f5networks/k8s-bigip-ctlr" # F5 BIG-IP Kubernetes Controller official image
+        tag: "latest"                     # Tag/version
+      - name: "quay.io/f5_business_development/f5_ee"
+        tag: "latest"
+      - name: "nginxdemos/nginx-hello"
+        tag: "latest"
+      - name: "balabit/syslog-ng"
+        tag: "latest"
+      - name: "quay.io/jetstack/cert-manager-cainjector"
+        tag: "v1.17.0"
+      - name: "quay.io/jetstack/cert-manager-webhook"
+        tag: "v1.17.0"
+    archive_dir: "/tmp/f5"
+
+  tasks:
+    - name: Log in to Harbor Registry
+      community.docker.docker_login:
+        username: "{{ dockerhub_username }}"
+        password: "{{ dockerhub_password }}"
+        registry_url: "https://index.docker.io/v1/"
+
+    - name: Pull Docker images
+      community.docker.docker_image:
+        name: "{{ item.name }}"          # Docker image name
+        tag: "{{ item.tag }}"            # Docker image tag/version
+        source: pull                     # Pull from Docker Registry
+      loop: "{{ docker_images }}"        # Loop through the list of images
+      register: pulled_images
+
+
+    - name: Display image pull result
+      debug:
+        var: nginx_image_result
+
+    - name: Save Docker images to a tar archive
+      community.docker.docker_image:
+        name: "{{ item.name }}"          # Docker image name
+        tag: "{{ item.tag }}"            # Docker image tag/version
+        source: local                     # Save the image to a tar archive
+        archive_path: "/tmp/{{ item.name | replace('/', '_') }}_{{ item.tag }}.tar"  # Archive path
+      loop: "{{ docker_images }}"        # Loop through the list of images
+      register: archived_images
+
+    - name: Debug saved docker images result
+      debug:
+        var: archived_images

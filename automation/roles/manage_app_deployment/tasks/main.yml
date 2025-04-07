@@ -8,7 +8,7 @@
   with_items: 
     - cafe
 
-    - syslog
+  #  - syslog
 
     - ap-apple-uds
     - ap-dataguard-alarm-policy
