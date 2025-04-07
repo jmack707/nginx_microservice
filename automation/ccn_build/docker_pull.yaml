@@ -2,27 +2,11 @@
 - hosts: localhost
   gather_facts: false
   become: true
+  
   vars_files:
-    - my-secret.yaml
-  vars:
-    #dockerhub_username: "your_username"   # Replace with your DockerHub username
-    #dockerhub_password: "your_password"  # Replace with your DockerHub password or access token
-    docker_images:
-      - name: "nginx/nginx-ingress"       # NGINX Ingress Controller official image
-        tag: "latest"                     # Tag/version
-      - name: "f5networks/k8s-bigip-ctlr" # F5 BIG-IP Kubernetes Controller official image
-        tag: "latest"                     # Tag/version
-      - name: "quay.io/f5_business_development/f5_ee"
-        tag: "latest"
-      - name: "nginxdemos/nginx-hello"
-        tag: "latest"
-      - name: "balabit/syslog-ng"
-        tag: "latest"
-      - name: "quay.io/jetstack/cert-manager-cainjector"
-        tag: "v1.17.0"
-      - name: "quay.io/jetstack/cert-manager-webhook"
-        tag: "v1.17.0"
-    archive_dir: "/tmp/f5"
+    - docker_login.yaml
+    - docker_images.yaml
+
 
   tasks:
     - name: Log in to Harbor Registry

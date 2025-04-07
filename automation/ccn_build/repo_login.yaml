@@ -1,0 +1,3 @@
+harbor_registry_url: "harbor.test.local/library"        # Harbor registry URL
+harbor_username: "admin"                                # Harbor username
+harbor_password: "Harbor12345"
