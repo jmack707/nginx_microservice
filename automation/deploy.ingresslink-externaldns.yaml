@@ -5,12 +5,14 @@
   gather_facts: false
 
   vars_files:
-    - /vars/k8s_secret.yaml
+    - ../vars/k8s_secret.yaml
       ../vars/image_locations
 
   vars:
       package_state: present
-      secret_state: create
+      secret_state: createbigip_username: admin
+      bigip_password: bigig123
+
       
 
   tasks:
