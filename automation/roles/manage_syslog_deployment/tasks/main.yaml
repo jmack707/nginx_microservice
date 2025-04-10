@@ -3,6 +3,6 @@
   kubernetes.core.k8s:
     namespace: default
     state: "{{ package_state }}"
-    definition: "{{ lookup('template', 'templates/syslog.yaml') | from_yaml_all }}"  
+    definition: "{{ lookup('template', 'templates/syslog.j2') | from_yaml_all }}"  
     validate:
       fail_on_error: yes
