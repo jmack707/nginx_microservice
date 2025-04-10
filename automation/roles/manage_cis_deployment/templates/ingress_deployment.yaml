@@ -18,7 +18,7 @@ spec:
       # permissions
       containers:
         - name: k8s-bigip-ctlr
-          image: "{{cis_image_location}}"
+          image: "{{cis_image}}"
           env:
             - name: BIGIP_USERNAME
               valueFrom:
