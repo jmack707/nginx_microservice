@@ -4,6 +4,9 @@
   hosts: master
   gather_facts: false
 
+  vars_files:
+    - vars/image_locations.yaml
+
   vars:
     package_state: absent
     secret_state: delete
