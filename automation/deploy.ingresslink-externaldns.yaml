@@ -11,10 +11,6 @@
   vars:
       package_state: present
       secret_state: create
-      syslog-image: harbor.test.local/library/balabit/syslog-ng
-      nginx-image: harbor.test.local/library/nginx/nginx-ingress
-      cis-image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
-      nginx-image: harbor.test.local/library/nginx/nginx-ingress
       
 
   tasks:
