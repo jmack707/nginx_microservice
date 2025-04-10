@@ -10,7 +10,8 @@
 
   vars:
       package_state: present
-      secret_state: createbigip_username: admin
+      secret_state: create
+      bigip_username: admin
       bigip_password: bigig123
 
       
