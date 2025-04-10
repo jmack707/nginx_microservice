@@ -1,4 +1,4 @@
-cis_image_location: harbor.test.local/library/f5networks/k8s-bigip-ctlr:latest
+cis_image_location: harbor.test.local/library/f5networks/k8s-bigip-ctlr@sha256:5438b52d0d9b28131012aaec028cca0294c9e308d20c7abc68e63cec5c3fd3b3
 syslog-image: harbor.test.local/library/balabit/syslog-ng
 nginx-image: harbor.test.local/library/nginx/nginx-ingress
 cis-image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
