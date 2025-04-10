@@ -9,9 +9,9 @@
       metadata:
         name: bigip-login
         namespace: kube-system
-      stringData:
-       password: bigip123
-       username: admin
+      data:
+        username: "{{ bigip_username | b64encode }}"
+        password: "{{ bigip_password | b64encode }}
       type: Opaque
 
 - name: Apply Service Account, Cluster Role and Cluster Role Binding
