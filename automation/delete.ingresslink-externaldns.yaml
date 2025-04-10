@@ -36,3 +36,7 @@
     - name: NIC  
       import_role:
         name: manage_nic_deployment
+
+    - name: Syslog
+      import_role:
+        name: manage_syslog_deployment
