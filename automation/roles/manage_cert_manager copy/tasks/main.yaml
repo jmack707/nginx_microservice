@@ -130,7 +130,7 @@ spec:
     spec:
       containers:
       - name: cert-manager-webhook
-        image: "${docker_url}/cert-manager-webhook:${cert-manager_tag}"
+        image: "${docker_url}/cert-manager-webhook:${docker_tag}"
         imagePullPolicy: IfNotPresent
         args:
         - --v=2

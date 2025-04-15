@@ -40,3 +40,4 @@
     - name: Syslog
       import_role:
         name: manage_syslog_deployment
+
