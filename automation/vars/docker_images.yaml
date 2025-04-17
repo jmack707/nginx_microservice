@@ -17,5 +17,3 @@ docker_images:
     docker_tag: "v1.17.0"
 archive_dir: "/tmp/f5"
 docker_url: "https://index.docker.io/v1/"
-
-cert-manager-tag: "v1.17.0"

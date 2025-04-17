@@ -23,3 +23,6 @@ docker_images_with_files:                               # Combine `image_files` 
   - image_file: "/tmp/quay.io_jetstack_cert-manager-webhook:v1.17.0_v1.17.0.tar"
     name: "quay.io/jetstack/cert-manager-webhook"
     docker_tag: "v1.17.0"
+
+repo_url: "harbor.test.local/library"
+cert-manager-tag: "v1.17.0"
