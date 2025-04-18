@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars_files:
-    - vars/repo.images.yaml
+    - vars/repo_images.yaml
     - vars/k8s_secret.yaml
 
   vars:
