@@ -4,8 +4,8 @@
   become: true
   
   vars_files:
-    - vars/docker_login.yaml
-    - vars/docker_images.yaml
+    - vars/repo_login.yaml
+    - vars/repo_images.yaml
 
   tasks:
     - name: Login to Repo
