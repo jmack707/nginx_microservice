@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: cert-manager-cainjector
-        image: "{repo_url}/quay.io/jetstack/cert-manager-cainjector:{cert-manager-tag}"
+        image: "{{repo_url}}/quay.io/jetstack/cert-manager-cainjector:{{cert-manager-tag}}"
         imagePullPolicy: IfNotPresent
         args:
         - --v=2
@@ -85,7 +85,7 @@ spec:
     spec:
       containers:
       - name: cert-manager
-        image: "{repo_url}/quay.io/jetstack/cert-manager-controller:{cert-manager-tag}"
+        image: "{{repo_url}}/quay.io/jetstack/cert-manager-controller:{{cert-manager-tag}}"
         imagePullPolicy: IfNotPresent
         args:
         - --v=2
@@ -128,9 +128,7 @@ spec:
     spec:
       containers:
       - name: cert-manager-webhook
-        image: "{repo_url}/quay.io/jetstack/cert-manager-webhook:{cert-manager_tag}"
-        imagePullPolicy: IfNotPresent
-        args:
+        image: "{{repo_url}}/quay.io/jetstack/cert-manager-webhook:{{cert-manager-tag}}
         - --v=2
         - --leader-election-namespace=$(POD_NAMESPACE)
         env:
