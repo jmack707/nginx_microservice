@@ -12,7 +12,7 @@
     community.docker.docker_image:
       name: "{{ item.name }}"  # Original source image name (loaded locally)
       tag: "{{ item.docker_tag }}"    # Original tag
-      repository: "{{ repo_url }}/{{ item.name }}"  # New registry target
+      repository: "{{ docker_url }}/{{ item.name }}"  # New registry target
       source: local
     loop: "{{ docker_images_with_files }}"
     loop_control:
@@ -20,7 +20,7 @@
 
   - name: Push the tagged image to registry
     community.docker.docker_image:
-      name: "{{ repo_url }}/{{ item.name }}"  # Full registry path (tagged image)
+      name: "{{ docker_url }}/{{ item.name }}"  # Full registry path (tagged image)
       tag: "{{ item.docker_tag }}"
       push: true
       source: local
