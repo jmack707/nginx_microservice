@@ -1,7 +1,7 @@
 - name: Cert Manager
   kubernetes.core.k8s:
     state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/manager_cert_manager.j2') | from_yaml_all }}"
+    definition: "{{ lookup('template', 'templates/cert_manager.j2') | from_yaml_all }}"
     validate:
       fail_on_error: yes 
    
