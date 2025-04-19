@@ -20,7 +20,7 @@ docker_images_with_files:                               # Combine `image_files` 
   - image_file: "/tmp/quay.io_jetstack_cert-manager-cainjector_v1.17.0.tar"
     name: "quay.io/jetstack/cert-manager-cainjector"
     docker_tag: "v1.17.0"
-  - image_file: "/tmp/quay.io_jetstack_cert-manager-webhook:v1.17.0_v1.17.0.tar"
+  - image_file: "/tmp/quay.io_jetstack_cert-manager-webhook:v1.17.0.tar"
     name: "quay.io/jetstack/cert-manager-webhook"
     docker_tag: "v1.17.0"
 
@@ -30,9 +30,9 @@ cis_image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
 syslog_image: harbor.test.local/library/balabit/syslog-ng
 nginx_image: harbor.test.local/library/nginx/nginx-ingress
 nginxdemos: harbor.test.local/library/nginxdemos
-cert_manager_controller: harbor.test.local/library/quay.io/jetstack/cert-manager-controller
-cert_manager_cainjector: harbor.test.local/library/quay.io/jetstack/cert-manager-cainjector
-cert-manager-webhook:  harbor.test.local/library/quay.io/jetstack/cert-manager-webhook
+cert_manager_controller: harbor.test.local/library/quay.io/jetstack/cert-manager-controller:v1.17.0
+cert_manager_cainjector: harbor.test.local/library/quay.io/jetstack/cert-manager-cainjector:v1.17.0
+cert-manager-webhook:  harbor.test.local/library/quay.io/jetstack/cert-manager-webhook:v1.17.0
 
 
 cert-manager-tag: "v1.17.0"
