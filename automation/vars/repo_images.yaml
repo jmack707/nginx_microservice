@@ -30,7 +30,7 @@ cis_image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
 syslog_image: harbor.test.local/library/balabit/syslog-ng
 nginx_image: harbor.test.local/library/nginx/nginx-ingress
 nginxdemos: harbor.test.local/library/nginxdemos
-cert_manager_controller: harbor.test.local/library/quay.io/jetstack/cert-manager-controller:v1.17.0
+cert_manager_controller: harbor.test.local/library/quay.io/jetstack/cert-manager-controller
 cert_manager_cainjector: harbor.test.local/library/quay.io/jetstack/cert-manager-cainjector:v1.17.0
 cert_manager_webhook:  harbor.test.local/library/quay.io/jetstack/cert-manager-webhook:v1.17.0
 
