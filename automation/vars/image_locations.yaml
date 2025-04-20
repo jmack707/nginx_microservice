@@ -1,3 +1,0 @@
-cis_image: harbor.test.local/library/f5networks/k8s-bigip-ctlr:latest
-syslog_image: harbor.test.local/library/balabit/syslog-ng:latest
-nginx_image: harbor.test.local/library/nginx/nginx-ingress
