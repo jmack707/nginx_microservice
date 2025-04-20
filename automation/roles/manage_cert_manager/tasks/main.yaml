@@ -1,6 +1,6 @@
 
 - name: Install cert-manager Helm chart
-  community.kubernetes.helm:
+  kubernetes.core.helm_repository:
     name: cert-manager                         # The name of the Helm release
     chart_ref: oci://harbor.test.local/library/cert-manager  # The OCI chart location
     chart_version: v1.14.4                     # The version of the chart to install
