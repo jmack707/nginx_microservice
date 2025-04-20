@@ -4,4 +4,19 @@
     definition: "{{ lookup('template', 'templates/cert_manager.j2') | from_yaml_all }}"
     validate:
       fail_on_error: yes 
-   
+
+- name: Create or update the TLS secret
+  kubernetes.core.k8s:
+    state: present
+    kubeconfig: /home/{{admin_account}}/.kube/config
+    definition: "{{ lookup('template', 'templates/tls.secret.j2') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes 
+
+- name: Create Cluster Issuser
+  kubernetes.core.k8s:
+    state: present
+    kubeconfig: /home/{{admin_account}}/.kube/config
+    definition: "{{ lookup('template', 'templates/clusterissuer.j2') | from_yaml_all }}"
+    validate:
+      fail_on_error: yes 

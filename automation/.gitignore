@@ -1,3 +1,4 @@
-automation/vars/k8s_secret.yaml
-automation/vars/docker_login.yaml
-automation/vars/repo_login.yaml
+vars/k8s_secret.yaml
+vars/docker_login.yaml
+vars/repo_login.yaml
+vars/cert_manager.yaml
