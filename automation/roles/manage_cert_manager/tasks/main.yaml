@@ -1,29 +1,29 @@
-- name: Create a k8s namespace
-  kubernetes.core.k8s:
-    name: cert-manager
-    api_version: v1
-    kind: Namespace
-    state: '{{ package_state }}'
+---
+# tasks/main.yml
+- name: Add the Jetstack Helm repository for cert-manager
+  kubernetes.core.helm_repository:
+    name: jetstack
+    repo_url:  oci://harbor.test.local/library/cert-manager 
 
-- name: Cert Manager
-  kubernetes.core.k8s:
-    state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/cert_manager.j2') | from_yaml_all }}"
-    validate:
-      fail_on_error: yes 
+- name: Install Cert-Manager with Helm chart
+  kubernetes.core.helm:
+    name: cert-manager
+    chart_ref: jetstack/cert-manager
+    release_namespace: cert-manager
+    create_namespace: true
+    kubeconfig: /home/{{admin_account}}/.kube/config
+    values:
+      installCRDs: true
+    state: present
 
 - name: Create or update the TLS secret
   kubernetes.core.k8s:
     state: present
     kubeconfig: /home/{{admin_account}}/.kube/config
     definition: "{{ lookup('template', 'templates/tls.secret.j2') | from_yaml_all }}"
-    validate:
-      fail_on_error: yes 
 
 - name: Create Cluster Issuser
   kubernetes.core.k8s:
     state: present
     kubeconfig: /home/{{admin_account}}/.kube/config
     definition: "{{ lookup('template', 'templates/clusterissuer.j2') | from_yaml_all }}"
-    validate:
-      fail_on_error: yes 
