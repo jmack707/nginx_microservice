@@ -7,6 +7,7 @@
   vars_files:
     - vars/repo_images.yaml
     - vars/k8s_secret.yaml
+    - vars/cert_manager.yaml
 
   vars:
       package_state: present
