@@ -1,3 +1,10 @@
+- name: Create a k8s namespace
+  kubernetes.core.k8s:
+    name: cert-manager
+    api_version: v1
+    kind: Namespace
+    state: '{{ package_state }}'
+
 - name: Cert Manager
   kubernetes.core.k8s:
     state: '{{ package_state }}'
