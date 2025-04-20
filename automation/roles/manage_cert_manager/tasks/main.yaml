@@ -4,7 +4,7 @@
   kubernetes.core.helm_repository:
     name: jetstack
     repo_url:  oci://harbor.test.local/library/cert-manager 
-    validage_ssl: false
+    validate_certs: false
 
 - name: Install Cert-Manager with Helm chart
   kubernetes.core.helm:
