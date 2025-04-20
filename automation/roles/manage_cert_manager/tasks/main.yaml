@@ -2,7 +2,7 @@
 # tasks/main.yml
 - name: Add the Jetstack Helm repository for cert-manager
   kubernetes.core.helm_repository:
-    name: jetstack
+    name: harbor
     repo_url:  https://harbor.test.local/library/cert-manager 
     validate_certs: false
 
