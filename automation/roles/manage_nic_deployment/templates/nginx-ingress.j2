@@ -33,7 +33,7 @@ spec:
       #      - name: nginx-log
       #        emptyDir: {}
       containers:
-        - image: "{{ docker_repo }}/{{nginx_image}}"
+        - image: "{{ docker_url }}/{{nginx_image}}"
           imagePullPolicy: IfNotPresent
           name: nginx-plus-ingress
           ports:
