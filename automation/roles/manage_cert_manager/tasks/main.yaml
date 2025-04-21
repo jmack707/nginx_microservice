@@ -8,8 +8,6 @@
         create_namespace: true                    # Create the namespace if it doesn't exist
         values:                                   # Override chart values
           installCRDs: true                      # Set Helm values directly
-      installCRDs: true
-
 
 # tasks/main.yml
 #- name: Add the Jetstack Helm repository for cert-manager
