@@ -1,14 +1,15 @@
 
-- name: Install cert-manager Helm chart
-  kubernetes.core.helm_repository:
-    name: cert-manager                         # The name of the Helm release
-    chart_ref: oci://harbor.test.local/library/cert-manager  # The OCI chart location
-    chart_version: v1.14.4                     # The version of the chart to install
-    release_namespace: cert-manager            # The namespace where the release will be created
-    create_namespace: true                     # Automatically create the namespace if it doesn't exist
-    values:                                    # Set Helm values directly
+    - name: Install cert-manager Helm chart
+      kubernetes.core.helm:
+        release_name: cert-manager                # The name of the Helm release
+        chart_ref: oci://harbor.test.local/library/cert-manager  # OCI chart reference
+        chart_version: v1.14.4                     # Helm chart version
+        namespace: cert-manager                   # Kubernetes namespace for the release
+        create_namespace: true                    # Create the namespace if it doesn't exist
+        values:                                   # Override chart values
+          installCRDs: true                      # Set Helm values directly
       installCRDs: true
-    state: '{{ package_state }}'
+
 
 # tasks/main.yml
 #- name: Add the Jetstack Helm repository for cert-manager
