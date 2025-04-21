@@ -1,18 +1,18 @@
 image:
   registry: {{ docker_url }}
   repository: cert-manager
-  tag: {{ chart_version }}
+  tag: {{ cert_manage_chart }}
 
 cainjector:
   image:
     registry: {{ docker_url }}
     repository: cainjector
-    tag: {{ chart_version }}
+    tag: {{ cert_manage_chart }}
 
 webhook:
   image:
     registry: {{ docker_url }}
     repository: webhook
-    tag: {{ chart_version }}
+    tag: {{ cert_manage_chart }}
 
 installCRDs: {{ install_crds | lower }}

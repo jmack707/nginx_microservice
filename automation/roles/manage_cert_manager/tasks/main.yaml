@@ -2,7 +2,6 @@
   kubernetes.core.helm:
     release_name: cert-manager                # The name of the Helm release
     chart_ref: oci://harbor.test.local/library/cert-manager  # OCI chart reference
-    chart_version: v1.14.4                     # Helm chart version
     namespace: cert-manager                   # Kubernetes namespace for the release
     create_namespace: true                    # Create the namespace if it doesn't exist
     values: "{{ lookup('template', 'values.j2') | from_yaml }}"
