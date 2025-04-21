@@ -7,13 +7,14 @@
     create_namespace: true                    # Create the namespace if it doesn't exist
     values:                                   # Override chart values
       installCRDs: true                      # Set Helm values directly
-    state: "{{ package_state }}"
-    values:                                   # Custom values overriding the chart defaults
       global:
         imageRegistry: harbor.test.local/library
       controller:
         image:
           repository: quay.io/jetstack/cert-manager-controller
+    state: "{{ package_state }}"
+                                # Custom values overriding the chart defaults
+
 
 - name: Create or update the TLS secret
   kubernetes.core.k8s:
