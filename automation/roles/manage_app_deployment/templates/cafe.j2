@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: coffee
-        image: "{{nginx_demos}}"
+        image: "{{docker_url}}/{{nginx_demos}}"
         ports:
         - containerPort: 8080
 ---
