@@ -29,7 +29,7 @@ docker_url: "harbor.test.local/library"
 cis_image: f5networks/k8s-bigip-ctlr
 syslog_image: balabit/syslog-ng
 nginx_image: nginx/nginx-ingress
-nginxdemos: nginxdemos
+nginx_demos: nginxdemos
 cert_manager_controller: quay.io/jetstack/cert-manager-controller
 cert_manager_cainjector: quay.io/jetstack/cert-manager-cainjector
 cert_manager_webhook:  quay.io/jetstack/cert-manager-webhook
