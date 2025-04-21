@@ -5,13 +5,7 @@
     chart_version: v1.14.4                     # Helm chart version
     namespace: cert-manager                   # Kubernetes namespace for the release
     create_namespace: true                    # Create the namespace if it doesn't exist
-    values:                                   # Override chart values
-      installCRDs: true                      # Set Helm values directly
-      global:
-        imageRegistry: harbor.test.local/library
-      controller:
-        image:
-          repository: harbor.test.local/library/quay.io/jetstack/cert-manager-controller
+    values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
   register: helm_result
 
