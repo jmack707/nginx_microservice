@@ -26,13 +26,13 @@ docker_images_with_files:                               # Combine `image_files` 
 
 docker_url: "harbor.test.local/library"
 
-cis_image: harbor.test.local/library/f5networks/k8s-bigip-ctlr
-syslog_image: harbor.test.local/library/balabit/syslog-ng
-nginx_image: harbor.test.local/library/nginx/nginx-ingress
-nginxdemos: harbor.test.local/library/nginxdemos
-cert_manager_controller: harbor.test.local/library/quay.io/jetstack/cert-manager-controller
-cert_manager_cainjector: harbor.test.local/library/quay.io/jetstack/cert-manager-cainjector
-cert_manager_webhook:  harbor.test.local/library/quay.io/jetstack/cert-manager-webhook
+cis_image: f5networks/k8s-bigip-ctlr
+syslog_image: balabit/syslog-ng
+nginx_image: nginx/nginx-ingress
+nginxdemos: nginxdemos
+cert_manager_controller: quay.io/jetstack/cert-manager-controller
+cert_manager_cainjector: quay.io/jetstack/cert-manager-cainjector
+cert_manager_webhook:  quay.io/jetstack/cert-manager-webhook
 
 cert_manager_tag: "v1.17.0"
 cert_manager_chart: "v1.14.4"
