@@ -6,7 +6,8 @@
 
   vars_files:
     - vars/k8s_secret.yaml
-    - vars/cert_manager.yaml
+    - vars/repo_images.yaml
+
 
   vars:
     package_state: absent
