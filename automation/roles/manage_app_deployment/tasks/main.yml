@@ -1,12 +1,17 @@
 ---
 # tasks file for roles/deploy_cafe
-- name: Manage Cafe APP Deployment
+- name: Manage Cafe Image
+  kubernetes.core.k8s:
+    namespace: default
+    state: "{{ package_state }}"
+    definition: "{{ lookup('template', 'templates/cafe.j2') | from_yaml_all }}"
+
+- name: Manage Cafe APP Extras
   kubernetes.core.k8s:
     namespace: default
     state: "{{ package_state }}"
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"  
   with_items: 
-    - cafe
     - ap-apple-uds
     - ap-dataguard-alarm-policy
     - ap-logconf
