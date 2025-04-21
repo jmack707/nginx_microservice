@@ -1,8 +1,9 @@
 - name: Install cert-manager Helm chart
   kubernetes.core.helm:
     release_name: cert-manager                # The name of the Helm release
-    chart_ref: oci://harbor.test.local/library/cert-manager  # OCI chart reference
+    chart_ref: oci://harbor.test.local/library/cert-manager  # OCI chart asereference
     namespace: cert-manager                   # Kubernetes namespace for the release
+    chart_version: "{{cert_manager_chart}}"
     create_namespace: true                    # Create the namespace if it doesn't exist
     values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
@@ -10,7 +11,7 @@
 
 - name: Debug Helm install result
   debug:
-    var: helm_result                           
+      var: helm_result                           
 
 - name: Create or update the TLS secret
   kubernetes.core.k8s:
