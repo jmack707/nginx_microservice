@@ -13,8 +13,11 @@
         image:
           repository: quay.io/jetstack/cert-manager-controller
     state: "{{ package_state }}"
-                                # Custom values overriding the chart defaults
+  register: helm_result
 
+- name: Debug Helm install result
+  debug:
+    var: helm_result                           
 
 - name: Create or update the TLS secret
   kubernetes.core.k8s:
