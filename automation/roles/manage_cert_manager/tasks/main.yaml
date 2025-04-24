@@ -24,4 +24,4 @@
     state: "{{ package_state }}"
     kubeconfig: /home/{{admin_account}}/.kube/config
     definition: "{{ lookup('template', 'templates/clusterissuer.j2') | from_yaml_all }}"
-  when: package_state is present
+  when: package_state == present
