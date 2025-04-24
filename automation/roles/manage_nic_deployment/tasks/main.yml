@@ -52,3 +52,4 @@
   kubernetes.core.k8s:
     state: '{{ package_state }}'
     definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | from_yaml_all }}"
+  when: package_state is present
