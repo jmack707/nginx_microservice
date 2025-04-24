@@ -13,14 +13,15 @@
   debug:
       var: helm_result                           
 
-- name: Create or update the TLS secret
+- name:  Manager Cert Manager TLS secret
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     kubeconfig: /home/{{admin_account}}/.kube/config
     definition: "{{ lookup('template', 'templates/tls.secret.j2') | from_yaml_all }}"
 
-- name: Create Cluster Issuser
+- name: Manager Cluster Issuser
   kubernetes.core.k8s:
     state: "{{ package_state }}"
     kubeconfig: /home/{{admin_account}}/.kube/config
     definition: "{{ lookup('template', 'templates/clusterissuer.j2') | from_yaml_all }}"
+  tag: skip_cluster_issuer
