@@ -1,5 +1,6 @@
 docker_images:
-  - name: "nginx/nginx-ingress"       
+  - name: "nginx-ic-nap-dos/nginx-ingress-plus" 
+    docker_url: private-registry.nginx.com
     docker_tag: "latest"                     
   - name: "f5networks/k8s-bigip-ctlr" 
     docker_tag: "latest"                     

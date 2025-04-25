@@ -1,9 +1,12 @@
 - name: Pull Docker images
   community.docker.docker_image:
-    name: "{{ item.name }}"          # Docker image name
-    tag: "{{ item.docker_tag }}"            # Docker image tag/version
-    source: pull                     # Pull from Docker Registry
-  loop: "{{ docker_images }}"        # Loop through the list of images
+    name: "{{ item.name }}"                            # Docker image name
+    tag: "{{ item.docker_tag }}"                       # Docker image tag/version
+    source: pull     
+    repository: "{{ docker_url | default(omit) }}"                                  # Pull from Docker Registry
+    client_cert: "{{nginx_cert | default(omit) }}"     # Certificate
+    client_key: "{{nginx_key | default(omit) }}"       # Key
+  loop: "{{ docker_images }}"                          # Loop through the list of images
   register: pulled_images
 
 

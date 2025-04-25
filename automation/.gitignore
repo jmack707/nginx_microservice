@@ -2,3 +2,4 @@ vars/k8s_secret.yaml
 vars/docker_login.yaml
 vars/repo_login.yaml
 vars/cert_manager.yaml
+vars/extras.yaml
