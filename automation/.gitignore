@@ -3,3 +3,4 @@ vars/docker_login.yaml
 vars/repo_login.yaml
 vars/cert_manager.yaml
 vars/extras.yaml
+vars/nginx_login.yaml

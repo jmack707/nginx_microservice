@@ -3,9 +3,12 @@
   gather_facts: false
   become: true
   
+  vars:
+
   vars_files:
-    - vars/docker_login.yaml
-    - vars/docker_images.yaml
+    - vars/nginx_login.yaml
+    - vars/nginx_images.yaml
+    - vars/extras.yaml
 
   tasks:
     - name: Login to Repo
@@ -15,3 +18,4 @@
     - name: Pull Docker Images
       import_role:
         name: docker_pull
+

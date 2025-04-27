@@ -1,7 +1,4 @@
 docker_images_with_files:                               # Combine `image_files` with `docker_images`
-  - image_file: "/tmp/nginx_nginx-ingress_latest.tar"
-    name: "nginx/nginx-ingress"
-    docker_tag: "latest"
   - image_file: "/tmp/f5networks_k8s-bigip-ctlr_latest.tar"
     name: "f5networks/k8s-bigip-ctlr"
     docker_tag: "latest"
@@ -23,16 +20,19 @@ docker_images_with_files:                               # Combine `image_files` 
   - image_file: "/tmp/quay.io_jetstack_cert-manager-webhook_v1.17.0.tar"
     name: "quay.io/jetstack/cert-manager-webhook"
     docker_tag: "v1.17.0"
+  - image_file: "/tmp/private-registry.nginx.com_nginx-ic-nap_nginx-plus-ingress_4.0.0.tar"
+    name: "private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress"
+    docker_tag: "4.0.0"
 
 docker_url: "harbor.test.local/library"
 
-cis_image: f5networks/k8s-bigip-ctlr
-syslog_image: balabit/syslog-ng
-nginx_image: nginx/nginx-ingress
-nginx_demos: nginxdemos/nginx-hello
-cert_manager_controller: quay.io/jetstack/cert-manager-controller
-cert_manager_cainjector: quay.io/jetstack/cert-manager-cainjector
-cert_manager_webhook:  quay.io/jetstack/cert-manager-webhook
+cis_image: "{{docker_url}}/f5networks/k8s-bigip-ctlr"
+syslog_image: "{{docker_url}}/balabit/syslog-ng"
+nginx_image: "{{docker_url}}/nginx/nginx-ingress"
+nginx_demos: "{{docker_url}}/nginxdemos/nginx-hello"
+cert_manager_controller: "{{docker_url}}/quay.io/jetstack/cert-manager-controller"
+cert_manager_cainjector: "{{docker_url}}/quay.io/jetstack/cert-manager-cainjector"
+cert_manager_webhook:  "{{docker_url}}/quay.io/jetstack/cert-manager-webhook"
 
 cert_manager_tag: "v1.17.0"
 cert_manager_chart: "v1.14.4"
