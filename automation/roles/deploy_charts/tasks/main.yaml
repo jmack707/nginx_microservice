@@ -1,4 +1,4 @@
-- name: Install cert-manager Helm chart
+- name: Install nginx Helm chart
   kubernetes.core.helm:
     release_name: nginx-ingress               # The name of the Helm release
     chart_ref: oci://harbor.test.local/library/nginx-ingress  # OCI chart asereference
@@ -8,6 +8,7 @@
     #values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
     kubeconfig: /home/ubuntu/.kube/config
+    validate_certs: false
   register: helm_result
 
 - name: Debug Helm install result
