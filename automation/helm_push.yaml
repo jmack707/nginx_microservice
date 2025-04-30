@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: false
+  become: true
+  
+  vars_files:
+    - vars/helm_charts.yaml
+    - vars/repo_login.yaml
+  
+
+  tasks:
+
+    - name: Repo Login
+      import_role:
+        name: docker_login
+
+    - name: Manage Helm Charts
+      import_role:
+        name: push_helm_charts

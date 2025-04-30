@@ -1,0 +1,16 @@
+---
+- hosts: master
+  gather_facts: false
+  become: true
+  
+  vars_files:
+    - vars/repo.yaml
+  
+  vars:
+    package_state: present
+
+  tasks:
+
+    - name: Deploy Helm Charts
+      import_role:
+        name: deploy_charts

@@ -14,4 +14,4 @@ docker_images:
   - name: "quay.io/jetstack/cert-manager-webhook"
     docker_tag: "v1.17.0"
 archive_dir: "/tmp/f5"
-docker_url: "https://index.docker.io/v1/"
+registry_url: "https://index.docker.io/v1/"

@@ -24,12 +24,12 @@ docker_images_with_files:                               # Combine `image_files` 
     name: "private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress"
     docker_tag: "4.0.0"
 
-docker_url: "harbor.test.local/library"
+registry_url: "harbor.test.local/library"
 
-cis_image: "{{docker_url}}/f5networks/k8s-bigip-ctlr"
-syslog_image: "{{docker_url}}/balabit/syslog-ng"
-nginx_image: "{{docker_url}}/nginx/nginx-ingress"
-nginx_demos: "{{docker_url}}/nginxdemos/nginx-hello"
+cis_image: "{{registry_url}}/f5networks/k8s-bigip-ctlr"
+syslog_image: "{{registry_url}}/balabit/syslog-ng"
+nginx_image: "{{registry_url}}/nginx/nginx-ingress"
+nginx_demos: "{{registry_url}}/nginxdemos/nginx-hello"
 cert_manager_controller: "quay.io/jetstack/cert-manager-controller"
 cert_manager_cainjector: "quay.io/jetstack/cert-manager-cainjector"
 cert_manager_webhook:  "quay.io/jetstack/cert-manager-webhook"

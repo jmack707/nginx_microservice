@@ -1,17 +1,17 @@
 image:
-  registry: {{ docker_url }}
+  registry: {{ registry_url }}
   repository: {{ cert_manager_controller }}
   tag: {{ cert_manager_tag }}
 
 cainjector:
   image:
-    registry: {{ docker_url }}
+    registry: {{ registry_url }}
     repository: {{cert_manager_cainjector}}
     tag: {{ cert_manager_tag }}
 
 webhook:
   image:
-    registry: {{ docker_url }}
+    registry: {{ registry_url }}
     repository: {{ cert_manager_webhook }}
     tag: {{ cert_manager_tag }}
 
