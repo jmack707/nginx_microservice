@@ -7,6 +7,7 @@
     create_namespace: true                    # Create the namespace if it doesn't exist
     values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
+    kubeconfig: /home/ubuntu/.kube/config
   register: helm_result
 
 - name: Debug Helm install result
