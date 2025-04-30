@@ -1,12 +1,13 @@
 - name: Install cert-manager Helm chart
   kubernetes.core.helm:
     release_name: nginx-ingress               # The name of the Helm release
-    chart_ref: oci://harbor.test.local/library/nginx/nginx-ingress  # OCI chart asereference
+    chart_ref: oci://harbor.test.local/library/nginx-ingress  # OCI chart asereference
     namespace: nginx-ingress                  # Kubernetes namespace for the release
-    chart_version: "{{cert_manager_chart | default(omit)}}"
-    create_namespace: true                    # Create the namespace if it doesn't exist
+    #chart_version: latest
+    #create_namespace: true                    # Create the namespace if it doesn't exist
     #values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
+    kubeconfig: /home/ubuntu/.kube/config
   register: helm_result
 
 - name: Debug Helm install result
