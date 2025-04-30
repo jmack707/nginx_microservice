@@ -1,0 +1,2 @@
+docker_username: "{{ nginx_jwt }}"
+docker_password: "{{ nginx_jwt }}"
