@@ -1,0 +1,23 @@
+chart_values:
+  image:
+    registry: {{ registry_url }}
+    repository: {{ cert_manager_controller }}
+    tag: {{ cert_manager_tag }}
+
+  cainjector:
+    image:
+      registry: {{ registry_url }}
+      repository: {{cert_manager_cainjector}}
+      tag: {{ cert_manager_tag }}
+
+  webhook:
+    image:
+      registry: {{ registry_url }}
+      repository: {{ cert_manager_webhook }}
+      tag: {{ cert_manager_tag }}
+
+  installCRDs: {{ install_crds | lower }}
+  
+release_name: cert-manager
+chart_ref: oci://harbor.test.local/library/cert-manager
+kubeconfig: /home/ubuntu/.kube/config

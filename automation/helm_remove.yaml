@@ -4,7 +4,7 @@
   become: true
   
   vars_files:
-    - vars/repo.yaml
+    - vars/nginx_chart_vars.yaml
   
   vars:
     package_state: absent

@@ -1,0 +1,25 @@
+chart_values:
+  controller:
+    name: controller
+    nginxplus: true
+    image:
+      repository: harbor.test.local/library/private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress
+      tag: "5.0.0"
+    enableOIDC: true
+    enableCertManager: true
+    appprotect:
+      enable: true
+    enableSnippets: true
+    nginxStatus:
+      allowCidrs: "0.0.0.0"
+    #reportIngressStatus:
+
+
+  serviceAccount:
+        ## The annotations of the service account of the Ingress Controller pods.
+        #    annotations: {}
+      imagePullSecretName: regcred
+  
+release_name: nginx-ingress
+chart_ref: oci://harbor.test.local/library/nginx-ingress
+kubeconfig: /home/ubuntu/.kube/config
