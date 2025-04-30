@@ -1,14 +1,13 @@
     charts:
       - name: cert-manager
         repo_url: https://charts.jetstack.io
-        destination: /tmp/cert-manager-chart
+        destination: /tmp
         untar_dir: cert-manager
-        verify: false
-        version: v1.14.4
+        version: "v1.17.1"
         oci_chart: false
       - name: oci://ghcr.io/nginx/charts/nginx-ingress
         destination: /tmp/nginx-ingress-chart
         untar_dir: nginx-ingress
-        verify: false
+        untar_chart: true
         version: "2.1.0"
         oci_chart: true

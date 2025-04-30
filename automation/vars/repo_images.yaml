@@ -35,5 +35,5 @@ cert_manager_cainjector: "quay.io/jetstack/cert-manager-cainjector"
 cert_manager_webhook:  "quay.io/jetstack/cert-manager-webhook"
 
 cert_manager_tag: "v1.17.0"
-cert_manager_chart: "v1.14.4"
+cert_manager_chart: "v1.17.1"
 install_crds: true
