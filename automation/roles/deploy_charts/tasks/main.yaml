@@ -2,13 +2,20 @@
   kubernetes.core.helm:
     release_name: nginx-ingress               # The name of the Helm release
     chart_ref: oci://harbor.test.local/library/nginx-ingress  # OCI chart asereference
-    namespace: nginx-ingress                  # Kubernetes namespace for the release
-    #chart_version: latest
-    #create_namespace: true                    # Create the namespace if it doesn't exist
+    release_namespace: nginx-ingress                 # Kubernetes namespace for the release
+
+    create_namespace: true                    # Create the namespace if it doesn't exist
     #values: "{{ lookup('template', 'values.j2') | from_yaml }}"
     state: "{{ package_state }}"
     kubeconfig: /home/ubuntu/.kube/config
     validate_certs: false
+    values:
+      controller:
+        name: controller
+        nginxplus: true
+        image:
+          repository: private-registry.nginx.com/library/nginx-ic-nap/nginx-plus-ingress
+      tag: "5.0.0"
   register: helm_result
 
 - name: Debug Helm install result
