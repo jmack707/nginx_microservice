@@ -18,7 +18,7 @@ spec:
       # permissions
       containers:
         - name: k8s-bigip-ctlr
-          image: "quay.io/f5networks/k8s-bigip-ctlr:2.18.1"
+          image: "quay.io/f5networks/k8s-bigip-ctlr:{{cis_version}}"
           env:
             - name: BIGIP_USERNAME
               valueFrom:
@@ -44,10 +44,10 @@ spec:
               "--bigip-url={{bigip_mgt}}",
               "--bigip-partition=k8s",
               "--namespace=nginx-ingress",
-              "--pool-member-type=cluster",
-              "--static-routing-mode=true",
-              "--orchestration-cni=flannel",
-              "--log-level=DEBUG",
+              "--pool-member-type={{pool-member-type}}",
+              "--static-routing-mode=true={{static-routing-mode}}",
+              "--orchestration-cni={{orchestration-cni}}",
+              "--log-level={{log-level}}",
               "--insecure=true",
               "--custom-resource-mode=true",
               "--as3-validation=true",
