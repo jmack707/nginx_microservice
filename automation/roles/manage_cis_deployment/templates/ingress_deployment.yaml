@@ -44,7 +44,7 @@ spec:
               "--bigip-url={{bigip_mgt}}",
               "--bigip-partition=k8s",
               "--namespace=nginx-ingress",
-              "--pool-member-type={{pool-member-type}}",
+              "--pool-member-type=cluster",
               "--static-routing-mode=true={{static-routing-mode}}",
               "--orchestration-cni={{orchestration-cni}}",
               "--log-level={{log-level}}",
