@@ -45,7 +45,7 @@ spec:
               "--bigip-partition=k8s",
               "--namespace=nginx-ingress",
               "--pool-member-type=cluster",
-              "--static-routing-mode=true={{static-routing-mode}}",
+              "--static-routing-mode={{static-routing-mode}}",
               "--orchestration-cni={{orchestration-cni}}",
               "--log-level={{log-level}}",
               "--insecure=true",
