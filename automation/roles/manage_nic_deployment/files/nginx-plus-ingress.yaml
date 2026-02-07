@@ -33,7 +33,7 @@ spec:
       #      - name: nginx-log
       #        emptyDir: {}
       containers:
-        - image: "private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:{{nginx-version}}"
+        - image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress:{{nginx-version}}
           imagePullPolicy: IfNotPresent
           name: nginx-plus-ingress
           ports:
