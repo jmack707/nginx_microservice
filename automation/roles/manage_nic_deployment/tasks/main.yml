@@ -35,11 +35,17 @@
 
     - nginx-service
 
-- name: Deploy NGINX NIC Deployment Templates
+- name: NGINX Plus
   kubernetes.core.k8s:
     state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/{{item}}') | from_yaml_all }}"
-  with_items:
-    - nginx-plus.j2
-    - nginx-server-secret.j2
-    - nginx-dashboard.j2
+    definition: "{{ lookup('template', 'templates/nginx-plus.j2') | from_yaml_all }}"
+
+- name: NGINX Secrets
+  kubernetes.core.k8s:
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'templates/nginx-server-secret.j2') | from_yaml_all }}"
+
+- name: Manage Dashboard Deployment
+  kubernetes.core.k8s:
+    state: '{{ package_state }}'
+    definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | from_yaml_all }}"
