@@ -12,7 +12,7 @@
   become: true
   #no_log: true
 
-- name: Deploy NGINX NIC Deployment
+- name: Deploy NGINX NIC Deployment Files
   kubernetes.core.k8s:
     state: '{{ package_state }}'
     definition: "{{ lookup('file', 'files/{{item}}.yaml') | from_yaml_all }}"
@@ -33,15 +33,13 @@
     - appprotect.f5.com_appolicies
     - appprotect.f5.com_apusersigs
 
-    - nginx-plus-ingress
     - nginx-service
 
-- name: NGINX Secrets
+- name: Deploy NGINX NIC Deployment Templates
   kubernetes.core.k8s:
     state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/nginx-server-secret.j2') | from_yaml_all }}"
-
-- name: Manage Dashboard Deployment
-  kubernetes.core.k8s:
-    state: '{{ package_state }}'
-    definition: "{{ lookup('template', 'templates/nginx-dashboard.j2') | from_yaml_all }}"
+    definition: "{{ lookup('file', 'files/{{item}}') | from_yaml_all }}"
+  with_items:
+    - nginx-plus-ingress.j2
+    - nginx-server-secret.j2
+    - nginx-dashboard.j2
