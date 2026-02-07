@@ -40,6 +40,6 @@
     state: '{{ package_state }}'
     definition: "{{ lookup('file', 'templates/{{item}}') | from_yaml_all }}"
   with_items:
-    - nginx-plus-ingress.j2
+    - nginx-plus.j2
     - nginx-server-secret.j2
     - nginx-dashboard.j2
