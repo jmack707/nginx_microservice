@@ -47,8 +47,6 @@ kind: ServiceAccount
 metadata:
   name: bigip-ctlr
   namespace: kube-system
-
----
 - apiGroups:
   - crd.projectcalico.org
   resources:
@@ -56,4 +54,5 @@ metadata:
   verbs:
   - get
   - list
-  - watch
+  - watch  
+
