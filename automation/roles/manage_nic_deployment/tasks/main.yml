@@ -38,7 +38,7 @@
 - name: Deploy NGINX NIC Deployment Templates
   kubernetes.core.k8s:
     state: '{{ package_state }}'
-    definition: "{{ lookup('file', 'files/{{item}}') | from_yaml_all }}"
+    definition: "{{ lookup('file', 'templates/{{item}}') | from_yaml_all }}"
   with_items:
     - nginx-plus-ingress.j2
     - nginx-server-secret.j2
