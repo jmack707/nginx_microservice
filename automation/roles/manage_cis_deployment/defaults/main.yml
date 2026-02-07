@@ -5,3 +5,4 @@ static_routing_mode: false
 orchestration_cni: calico
 log_level: WARNING
 pool_member_type: cluster
+nginx-version: 3.7.1
