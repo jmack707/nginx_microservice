@@ -1,7 +1,7 @@
 ---
 # defaults file for roles/install_cis
 cis_version: 2.20.0
-static_routing_mode: false
+static_routing_mode: true
 orchestration_cni: calico-k8s
 log_level: WARNING
 pool_member_type: cluster
